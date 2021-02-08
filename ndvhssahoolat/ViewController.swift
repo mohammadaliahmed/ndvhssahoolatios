@@ -10,18 +10,36 @@ import UIKit
 class ViewController: UIViewController {
 
     
-    @IBOutlet weak var firstName: UILabel!
     
-    @IBOutlet weak var gender: UILabel!
-    @IBOutlet weak var lastName: UILabel!
-    @IBOutlet weak var age: UILabel!
+    @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var phoneNumber: UITextField!
+    @IBAction func loginButton(_ sender: Any) {
+        
+        let postRequest=PostRequest(api_username: "WF9.FJ8u'FP{c5Pw",api_password: "3B~fauh5s93j[FKb",phone: phoneNumber.text ?? "",password: password.text ?? "")
+        
+        
+        
+        let apiRequest=APIRequest(endpoint: "user/login")
+        apiRequest.loginUser(postRequest: postRequest, completion: { result in
+            switch result{
+            case .success(let message):
+                print("done: \(message)")
+            case .failure(let error):
+                print ("error: \(error)")
+            
+            }
+        })
+        
+        
+       
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        overrideUserInterfaceStyle = .light
         
         Configuration.value(value: "my_value", forKey: "key_1")
         let myValue = Configuration.value(defaultValue: "default_value", forKey: "key_1")
-            
+        self.hideKeyboardWhenTappedAround()
         print(myValue)
 
 //        fetchData()
@@ -70,3 +88,14 @@ class ViewController: UIViewController {
 
 }
 
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+}
