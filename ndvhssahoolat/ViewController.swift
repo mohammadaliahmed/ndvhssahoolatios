@@ -11,37 +11,50 @@ class ViewController: UIViewController {
 
     
     
-    @IBOutlet weak var password: UITextField!
-    @IBOutlet weak var phoneNumber: UITextField!
-    @IBAction func loginButton(_ sender: Any) {
-        
-        let postRequest=PostRequest(api_username: "WF9.FJ8u'FP{c5Pw",api_password: "3B~fauh5s93j[FKb",phone: phoneNumber.text ?? "",password: password.text ?? "")
-        
-        
-        
-        let apiRequest=APIRequest(endpoint: "user/login")
-        apiRequest.loginUser(postRequest: postRequest, completion: { result in
-            switch result{
-            case .success(let message):
-                print("done: \(message)")
-            case .failure(let error):
-                print ("error: \(error)")
-            
-            }
-        })
-        
-        
-       
-    }
+//    @IBOutlet weak var password: UITextField!
+//    @IBOutlet weak var phoneNumber: UITextField!
+//    @IBAction func loginButton(_ sender: Any) {
+//
+//        let postRequest=PostRequest(api_username: "WF9.FJ8u'FP{c5Pw",api_password: "3B~fauh5s93j[FKb",phone: phoneNumber.text ?? "",password: password.text ?? "")
+//
+//
+//
+//        let apiRequest=APIRequest(endpoint: "user/login")
+//        apiRequest.loginUser(postRequest: postRequest, completion: { result in
+//            switch result{
+//            case .success(let message):
+//                print("done: \(message)")
+//            case .failure(let error):
+//                print ("error: \(error)")
+//
+//            }
+//        })
+//
+//
+//
+//    }
     override func viewDidLoad() {
         super.viewDidLoad()
         overrideUserInterfaceStyle = .light
         
         Configuration.value(value: "my_value", forKey: "key_1")
-        let myValue = Configuration.value(defaultValue: "default_value", forKey: "key_1")
+        let myValue = Configuration.value(defaultValue: "default_value", forKey: "userid")
         self.hideKeyboardWhenTappedAround()
         print(myValue)
-
+        if(myValue=="default_value"){
+            
+            performSegue(withIdentifier: "loginView", sender: self)
+            }
+        }else{
+       
+    DispatchQueue.main.async {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let mainTabBarController = storyboard.instantiateViewController(identifier: "MainTabBarController")
+                mainTabBarController.modalPresentationStyle = .fullScreen
+                
+                self.present(mainTabBarController, animated: true, completion: nil)
+        }
+ 
 //        fetchData()
         
         

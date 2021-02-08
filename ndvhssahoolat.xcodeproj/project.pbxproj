@@ -20,6 +20,9 @@
 		13D6D22F25CA78E800A81BA6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13D6D22D25CA78E800A81BA6 /* LaunchScreen.storyboard */; };
 		13D6D23A25CA78E900A81BA6 /* ndvhssahoolatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D6D23925CA78E900A81BA6 /* ndvhssahoolatTests.swift */; };
 		13D6D24525CA78E900A81BA6 /* ndvhssahoolatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D6D24425CA78E900A81BA6 /* ndvhssahoolatUITests.swift */; };
+		13E1898825D155FC006627CB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E1898725D155FC006627CB /* LoginViewController.swift */; };
+		13E1899825D15A92006627CB /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E1899725D15A92006627CB /* RegisterController.swift */; };
+		13E189A425D1642C006627CB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E189A325D1642C006627CB /* HomeViewController.swift */; };
 		13E4D9EC25CBB1D500A6039D /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E4D9EB25CBB1D500A6039D /* Person.swift */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +63,9 @@
 		13D6D24025CA78E900A81BA6 /* ndvhssahoolatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ndvhssahoolatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		13D6D24425CA78E900A81BA6 /* ndvhssahoolatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ndvhssahoolatUITests.swift; sourceTree = "<group>"; };
 		13D6D24625CA78E900A81BA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		13E1898725D155FC006627CB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		13E1899725D15A92006627CB /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
+		13E189A325D1642C006627CB /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		13E4D9EB25CBB1D500A6039D /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -123,7 +129,10 @@
 				13AD7F0C25CBD4A100B03583 /* Configuration.swift */,
 				1362CA8325D1050B001F0E87 /* ApiResponse.swift */,
 				1362CA8825D10573001F0E87 /* UserModel.swift */,
+				13E1898725D155FC006627CB /* LoginViewController.swift */,
 				1362CA8D25D10A49001F0E87 /* PostRequest.swift */,
+				13E1899725D15A92006627CB /* RegisterController.swift */,
+				13E189A325D1642C006627CB /* HomeViewController.swift */,
 			);
 			path = ndvhssahoolat;
 			sourceTree = "<group>";
@@ -278,13 +287,16 @@
 			files = (
 				13D6D22725CA78E700A81BA6 /* ViewController.swift in Sources */,
 				13AD7F0D25CBD4A100B03583 /* Configuration.swift in Sources */,
+				13E1899825D15A92006627CB /* RegisterController.swift in Sources */,
 				1362CA8925D10573001F0E87 /* UserModel.swift in Sources */,
 				13D6D22325CA78E700A81BA6 /* AppDelegate.swift in Sources */,
 				1362CA8425D1050B001F0E87 /* ApiResponse.swift in Sources */,
 				13E4D9EC25CBB1D500A6039D /* Person.swift in Sources */,
 				1362CA7F25D1031B001F0E87 /* APIRequest.swift in Sources */,
 				1362CA8E25D10A49001F0E87 /* PostRequest.swift in Sources */,
+				13E1898825D155FC006627CB /* LoginViewController.swift in Sources */,
 				13D6D22525CA78E700A81BA6 /* SceneDelegate.swift in Sources */,
+				13E189A425D1642C006627CB /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
