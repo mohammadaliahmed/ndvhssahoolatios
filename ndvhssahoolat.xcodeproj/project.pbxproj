@@ -7,10 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		132637D225D2BFC400B4CCE1 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132637D125D2BFC400B4CCE1 /* ProfileViewController.swift */; };
 		1362CA7F25D1031B001F0E87 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1362CA7E25D1031B001F0E87 /* APIRequest.swift */; };
 		1362CA8425D1050B001F0E87 /* ApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1362CA8325D1050B001F0E87 /* ApiResponse.swift */; };
 		1362CA8925D10573001F0E87 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1362CA8825D10573001F0E87 /* UserModel.swift */; };
 		1362CA8E25D10A49001F0E87 /* PostRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1362CA8D25D10A49001F0E87 /* PostRequest.swift */; };
+		1387C6B925D2A2FD000D75A1 /* NoticeBoardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1387C6B825D2A2FD000D75A1 /* NoticeBoardController.swift */; };
+		1387C6BE25D2A3C9000D75A1 /* NoticeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1387C6BD25D2A3C9000D75A1 /* NoticeModel.swift */; };
 		13AD7F0D25CBD4A100B03583 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AD7F0C25CBD4A100B03583 /* Configuration.swift */; };
 		13D6D22325CA78E700A81BA6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D6D22225CA78E700A81BA6 /* AppDelegate.swift */; };
 		13D6D22525CA78E700A81BA6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D6D22425CA78E700A81BA6 /* SceneDelegate.swift */; };
@@ -48,10 +51,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		132637D125D2BFC400B4CCE1 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		1362CA7E25D1031B001F0E87 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		1362CA8325D1050B001F0E87 /* ApiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResponse.swift; sourceTree = "<group>"; };
 		1362CA8825D10573001F0E87 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		1362CA8D25D10A49001F0E87 /* PostRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRequest.swift; sourceTree = "<group>"; };
+		1387C6B825D2A2FD000D75A1 /* NoticeBoardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeBoardController.swift; sourceTree = "<group>"; };
+		1387C6BD25D2A3C9000D75A1 /* NoticeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeModel.swift; sourceTree = "<group>"; };
 		13AD7F0C25CBD4A100B03583 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		13D6D21F25CA78E700A81BA6 /* ndvhssahoolat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ndvhssahoolat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13D6D22225CA78E700A81BA6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -127,6 +133,7 @@
 			children = (
 				13D6D22625CA78E700A81BA6 /* ViewController.swift */,
 				1362CA7E25D1031B001F0E87 /* APIRequest.swift */,
+				132637D125D2BFC400B4CCE1 /* ProfileViewController.swift */,
 				13D6D22225CA78E700A81BA6 /* AppDelegate.swift */,
 				13D6D22425CA78E700A81BA6 /* SceneDelegate.swift */,
 				13E4D9EB25CBB1D500A6039D /* Person.swift */,
@@ -145,6 +152,8 @@
 				13E189AB25D24DE6006627CB /* TabsViewController.swift */,
 				13E189BD25D272D8006627CB /* StaffModel.swift */,
 				13E189C225D283B2006627CB /* CustomCellController.swift */,
+				1387C6B825D2A2FD000D75A1 /* NoticeBoardController.swift */,
+				1387C6BD25D2A3C9000D75A1 /* NoticeModel.swift */,
 			);
 			path = ndvhssahoolat;
 			sourceTree = "<group>";
@@ -302,9 +311,12 @@
 				13E189AC25D24DE6006627CB /* TabsViewController.swift in Sources */,
 				13E1899825D15A92006627CB /* RegisterController.swift in Sources */,
 				13E189C325D283B2006627CB /* CustomCellController.swift in Sources */,
+				1387C6B925D2A2FD000D75A1 /* NoticeBoardController.swift in Sources */,
 				1362CA8925D10573001F0E87 /* UserModel.swift in Sources */,
 				13D6D22325CA78E700A81BA6 /* AppDelegate.swift in Sources */,
 				13E189BE25D272D8006627CB /* StaffModel.swift in Sources */,
+				132637D225D2BFC400B4CCE1 /* ProfileViewController.swift in Sources */,
+				1387C6BE25D2A3C9000D75A1 /* NoticeModel.swift in Sources */,
 				1362CA8425D1050B001F0E87 /* ApiResponse.swift in Sources */,
 				13E189B925D272B8006627CB /* TicketModel.swift in Sources */,
 				13E4D9EC25CBB1D500A6039D /* Person.swift in Sources */,

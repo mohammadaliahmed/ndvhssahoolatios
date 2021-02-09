@@ -10,6 +10,7 @@ struct APIResponse: Codable {
     var message: String!
     var user: User!
     var tickets : [Ticket]!
+    var notices : [NoticeModel]!
     var ticket : Ticket!
 }
 
