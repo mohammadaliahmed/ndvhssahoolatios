@@ -16,7 +16,7 @@ class LoginViewController: UIViewController {
     }
     @IBAction func loginButton(_ sender: Any) {
         
-        let postRequest=PostRequest(api_username: "WF9.FJ8u'FP{c5Pw",api_password: "3B~fauh5s93j[FKb",phone: phonenumber.text ?? "",password: password.text ?? "")
+        let postRequest=PostRequest(api_username: "WF9.FJ8u'FP{c5Pw",api_password: "3B~fauh5s93j[FKb",phone: phonenumber.text ?? "",password: password.text ?? "",id: "1")
        
        
        
@@ -24,7 +24,7 @@ class LoginViewController: UIViewController {
                apiRequest.loginUser(postRequest: postRequest, completion: { result in
                    switch result{
                    case .success(let message):
-                       print("done: \(message)")
+                    print("done: \(message)")
                     Configuration.value(value: ""+message.user.id, forKey: "userid")
                     let myValue = Configuration.value(defaultValue: "default_value", forKey: "userid")
                     print(myValue)
@@ -32,7 +32,6 @@ class LoginViewController: UIViewController {
                         let storyboard = UIStoryboard(name: "Main", bundle: nil)
                                 let mainTabBarController = storyboard.instantiateViewController(identifier: "MainTabBarController")
                                 mainTabBarController.modalPresentationStyle = .fullScreen
-                                
                                 self.present(mainTabBarController, animated: true, completion: nil)
                           
                     }

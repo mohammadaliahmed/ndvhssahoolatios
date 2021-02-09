@@ -12,13 +12,15 @@ class PostRequest:Codable{
     let api_password:String
     let phone:String
     let password:String
+    let id:String
     
     
-    init(api_username:String,api_password:String,phone:String,password:String) {
+    init(api_username:String,api_password:String,phone:String,password:String,id:String) {
         self.api_username=api_username
         self.api_password=api_password
         self.phone=phone
         self.password=password
+        self.id=id
         
     }
     
