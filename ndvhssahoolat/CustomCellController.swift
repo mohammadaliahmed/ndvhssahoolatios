@@ -11,9 +11,11 @@ class CustomCellController: UITableViewCell {
 
     
    
-    @IBOutlet weak var desc: UILabel!
-    
+   
     @IBOutlet weak var subj: UILabel!
+    
+    @IBOutlet weak var cellView: UIView!
+    @IBOutlet weak var desc: UILabel!
     override class func awakeFromNib() {
         
     }

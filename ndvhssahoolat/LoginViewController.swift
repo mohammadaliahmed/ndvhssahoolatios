@@ -26,6 +26,12 @@ class LoginViewController: UIViewController {
                    case .success(let message):
                     print("done: \(message)")
                     Configuration.value(value: ""+message.user.id, forKey: "userid")
+                    Configuration.value(value: ""+message.user.name, forKey: "name")
+                    Configuration.value(value: ""+message.user.phone, forKey: "phone")
+                    Configuration.value(value: ""+message.user.housenumber, forKey: "house")
+                    Configuration.value(value: ""+message.user.block, forKey: "block")
+                    Configuration.value(value: ""+message.user.email, forKey: "email")
+                    Configuration.value(value: ""+message.user.avatar, forKey: "avatar")
                     let myValue = Configuration.value(defaultValue: "default_value", forKey: "userid")
                     print(myValue)
                     DispatchQueue.main.async {
