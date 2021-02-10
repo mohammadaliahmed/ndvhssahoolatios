@@ -3,17 +3,22 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		132637D225D2BFC400B4CCE1 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132637D125D2BFC400B4CCE1 /* ProfileViewController.swift */; };
+		132637D725D3A05900B4CCE1 /* FaqsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132637D625D3A05900B4CCE1 /* FaqsViewController.swift */; };
+		132637E325D3A6EF00B4CCE1 /* TinyConstraints in Frameworks */ = {isa = PBXBuildFile; productRef = 132637E225D3A6EF00B4CCE1 /* TinyConstraints */; };
+		132637EE25D3ADE600B4CCE1 /* FaqModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132637ED25D3ADE600B4CCE1 /* FaqModel.swift */; };
 		1362CA7F25D1031B001F0E87 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1362CA7E25D1031B001F0E87 /* APIRequest.swift */; };
 		1362CA8425D1050B001F0E87 /* ApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1362CA8325D1050B001F0E87 /* ApiResponse.swift */; };
 		1362CA8925D10573001F0E87 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1362CA8825D10573001F0E87 /* UserModel.swift */; };
 		1362CA8E25D10A49001F0E87 /* PostRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1362CA8D25D10A49001F0E87 /* PostRequest.swift */; };
 		1387C6B925D2A2FD000D75A1 /* NoticeBoardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1387C6B825D2A2FD000D75A1 /* NoticeBoardController.swift */; };
 		1387C6BE25D2A3C9000D75A1 /* NoticeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1387C6BD25D2A3C9000D75A1 /* NoticeModel.swift */; };
+		13A0659925D3EB9A00FADCEB /* CreateTicketController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A0659825D3EB9A00FADCEB /* CreateTicketController.swift */; };
+		13A0659E25D4070300FADCEB /* DepartmentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A0659D25D4070300FADCEB /* DepartmentModel.swift */; };
 		13AD7F0D25CBD4A100B03583 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AD7F0C25CBD4A100B03583 /* Configuration.swift */; };
 		13D6D22325CA78E700A81BA6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D6D22225CA78E700A81BA6 /* AppDelegate.swift */; };
 		13D6D22525CA78E700A81BA6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D6D22425CA78E700A81BA6 /* SceneDelegate.swift */; };
@@ -52,12 +57,16 @@
 
 /* Begin PBXFileReference section */
 		132637D125D2BFC400B4CCE1 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		132637D625D3A05900B4CCE1 /* FaqsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaqsViewController.swift; sourceTree = "<group>"; };
+		132637ED25D3ADE600B4CCE1 /* FaqModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaqModel.swift; sourceTree = "<group>"; };
 		1362CA7E25D1031B001F0E87 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		1362CA8325D1050B001F0E87 /* ApiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResponse.swift; sourceTree = "<group>"; };
 		1362CA8825D10573001F0E87 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		1362CA8D25D10A49001F0E87 /* PostRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRequest.swift; sourceTree = "<group>"; };
 		1387C6B825D2A2FD000D75A1 /* NoticeBoardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeBoardController.swift; sourceTree = "<group>"; };
 		1387C6BD25D2A3C9000D75A1 /* NoticeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeModel.swift; sourceTree = "<group>"; };
+		13A0659825D3EB9A00FADCEB /* CreateTicketController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTicketController.swift; sourceTree = "<group>"; };
+		13A0659D25D4070300FADCEB /* DepartmentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentModel.swift; sourceTree = "<group>"; };
 		13AD7F0C25CBD4A100B03583 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		13D6D21F25CA78E700A81BA6 /* ndvhssahoolat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ndvhssahoolat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13D6D22225CA78E700A81BA6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				132637E325D3A6EF00B4CCE1 /* TinyConstraints in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,6 +118,46 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		132637F225D3B53C00B4CCE1 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				13D6D22625CA78E700A81BA6 /* ViewController.swift */,
+				132637D125D2BFC400B4CCE1 /* ProfileViewController.swift */,
+				13E1898725D155FC006627CB /* LoginViewController.swift */,
+				13E1899725D15A92006627CB /* RegisterController.swift */,
+				13E189A325D1642C006627CB /* HomeViewController.swift */,
+				13E189AB25D24DE6006627CB /* TabsViewController.swift */,
+				13E189C225D283B2006627CB /* CustomCellController.swift */,
+				1387C6B825D2A2FD000D75A1 /* NoticeBoardController.swift */,
+				132637D625D3A05900B4CCE1 /* FaqsViewController.swift */,
+				13A0659825D3EB9A00FADCEB /* CreateTicketController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		132637F325D3B55E00B4CCE1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				132637ED25D3ADE600B4CCE1 /* FaqModel.swift */,
+				13E189B825D272B8006627CB /* TicketModel.swift */,
+				1362CA8825D10573001F0E87 /* UserModel.swift */,
+				13E189BD25D272D8006627CB /* StaffModel.swift */,
+				1387C6BD25D2A3C9000D75A1 /* NoticeModel.swift */,
+				13A0659D25D4070300FADCEB /* DepartmentModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		132637F425D3B56F00B4CCE1 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				1362CA7E25D1031B001F0E87 /* APIRequest.swift */,
+				1362CA8325D1050B001F0E87 /* ApiResponse.swift */,
+				1362CA8D25D10A49001F0E87 /* PostRequest.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 		13D6D21625CA78E700A81BA6 = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +165,7 @@
 				13D6D23825CA78E900A81BA6 /* ndvhssahoolatTests */,
 				13D6D24325CA78E900A81BA6 /* ndvhssahoolatUITests */,
 				13D6D22025CA78E700A81BA6 /* Products */,
+				6B3AA8C0FA9097FCA6E5A8CF /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -131,9 +182,9 @@
 		13D6D22125CA78E700A81BA6 /* ndvhssahoolat */ = {
 			isa = PBXGroup;
 			children = (
-				13D6D22625CA78E700A81BA6 /* ViewController.swift */,
-				1362CA7E25D1031B001F0E87 /* APIRequest.swift */,
-				132637D125D2BFC400B4CCE1 /* ProfileViewController.swift */,
+				132637F425D3B56F00B4CCE1 /* Networking */,
+				132637F325D3B55E00B4CCE1 /* Models */,
+				132637F225D3B53C00B4CCE1 /* ViewControllers */,
 				13D6D22225CA78E700A81BA6 /* AppDelegate.swift */,
 				13D6D22425CA78E700A81BA6 /* SceneDelegate.swift */,
 				13E4D9EB25CBB1D500A6039D /* Person.swift */,
@@ -142,18 +193,6 @@
 				13D6D22D25CA78E800A81BA6 /* LaunchScreen.storyboard */,
 				13D6D23025CA78E800A81BA6 /* Info.plist */,
 				13AD7F0C25CBD4A100B03583 /* Configuration.swift */,
-				1362CA8325D1050B001F0E87 /* ApiResponse.swift */,
-				13E189B825D272B8006627CB /* TicketModel.swift */,
-				1362CA8825D10573001F0E87 /* UserModel.swift */,
-				13E1898725D155FC006627CB /* LoginViewController.swift */,
-				1362CA8D25D10A49001F0E87 /* PostRequest.swift */,
-				13E1899725D15A92006627CB /* RegisterController.swift */,
-				13E189A325D1642C006627CB /* HomeViewController.swift */,
-				13E189AB25D24DE6006627CB /* TabsViewController.swift */,
-				13E189BD25D272D8006627CB /* StaffModel.swift */,
-				13E189C225D283B2006627CB /* CustomCellController.swift */,
-				1387C6B825D2A2FD000D75A1 /* NoticeBoardController.swift */,
-				1387C6BD25D2A3C9000D75A1 /* NoticeModel.swift */,
 			);
 			path = ndvhssahoolat;
 			sourceTree = "<group>";
@@ -176,6 +215,13 @@
 			path = ndvhssahoolatUITests;
 			sourceTree = "<group>";
 		};
+		6B3AA8C0FA9097FCA6E5A8CF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -192,6 +238,9 @@
 			dependencies = (
 			);
 			name = ndvhssahoolat;
+			packageProductDependencies = (
+				132637E225D3A6EF00B4CCE1 /* TinyConstraints */,
+			);
 			productName = ndvhssahoolat;
 			productReference = 13D6D21F25CA78E700A81BA6 /* ndvhssahoolat.app */;
 			productType = "com.apple.product-type.application";
@@ -263,6 +312,9 @@
 				Base,
 			);
 			mainGroup = 13D6D21625CA78E700A81BA6;
+			packageReferences = (
+				132637E125D3A6EF00B4CCE1 /* XCRemoteSwiftPackageReference "TinyConstraints" */,
+			);
 			productRefGroup = 13D6D22025CA78E700A81BA6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -307,6 +359,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13D6D22725CA78E700A81BA6 /* ViewController.swift in Sources */,
+				132637EE25D3ADE600B4CCE1 /* FaqModel.swift in Sources */,
 				13AD7F0D25CBD4A100B03583 /* Configuration.swift in Sources */,
 				13E189AC25D24DE6006627CB /* TabsViewController.swift in Sources */,
 				13E1899825D15A92006627CB /* RegisterController.swift in Sources */,
@@ -319,12 +372,15 @@
 				1387C6BE25D2A3C9000D75A1 /* NoticeModel.swift in Sources */,
 				1362CA8425D1050B001F0E87 /* ApiResponse.swift in Sources */,
 				13E189B925D272B8006627CB /* TicketModel.swift in Sources */,
+				132637D725D3A05900B4CCE1 /* FaqsViewController.swift in Sources */,
 				13E4D9EC25CBB1D500A6039D /* Person.swift in Sources */,
 				1362CA7F25D1031B001F0E87 /* APIRequest.swift in Sources */,
 				1362CA8E25D10A49001F0E87 /* PostRequest.swift in Sources */,
 				13E1898825D155FC006627CB /* LoginViewController.swift in Sources */,
+				13A0659925D3EB9A00FADCEB /* CreateTicketController.swift in Sources */,
 				13D6D22525CA78E700A81BA6 /* SceneDelegate.swift in Sources */,
 				13E189A425D1642C006627CB /* HomeViewController.swift in Sources */,
+				13A0659E25D4070300FADCEB /* DepartmentModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -655,6 +711,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		132637E125D3A6EF00B4CCE1 /* XCRemoteSwiftPackageReference "TinyConstraints" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/roberthein/TinyConstraints.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		132637E225D3A6EF00B4CCE1 /* TinyConstraints */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 132637E125D3A6EF00B4CCE1 /* XCRemoteSwiftPackageReference "TinyConstraints" */;
+			productName = TinyConstraints;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 13D6D21725CA78E700A81BA6 /* Project object */;
 }

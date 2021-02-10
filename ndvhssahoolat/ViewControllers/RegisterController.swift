@@ -14,6 +14,8 @@ class RegisterController: UIViewController {
 
         overrideUserInterfaceStyle = .light
         self.navigationController?.isNavigationBarHidden = true
+        self.hideKeyboardWhenTappedAround()
+
     }
     
 

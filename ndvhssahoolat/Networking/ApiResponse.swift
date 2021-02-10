@@ -12,6 +12,8 @@ struct APIResponse: Codable {
     var tickets : [Ticket]!
     var notices : [NoticeModel]!
     var ticket : Ticket!
+    var faqs : [FaqModel]!
+    var departments : [DepartmentModel]!
 }
 
 // MARK: - User
