@@ -6,11 +6,15 @@
 //
 
 import UIKit
+import YPImagePicker
+import SwiftUI
+import WXImageCompress
 
 class CreateTicketController: UIViewController{
     
     @IBOutlet weak var descriptionTF: UITextView!
     
+    @IBOutlet weak var imageView: UIImageView!
     
     @IBAction func submitBtn(_ sender: Any) {
         createTicket {
@@ -54,6 +58,10 @@ class CreateTicketController: UIViewController{
         prioritiyPickerView.tag=2
         
         
+        let tap = UITapGestureRecognizer(target: self, action: #selector(ProfileViewController.tappedMe))
+        imageView.addGestureRecognizer(tap)
+        imageView.isUserInteractionEnabled = true
+        
         
         getDataFromServer {
             self.reloadInputViews()
@@ -63,6 +71,84 @@ class CreateTicketController: UIViewController{
         
         // Do any additional setup after loading the view.
     }
+    @objc func tappedMe()
+    {
+        print("Tapped on Image")
+        let picker = YPImagePicker()
+        picker.didFinishPicking { [unowned picker] items, _ in
+            if let photo = items.singlePhoto {
+                print(photo.fromCamera) // Image source (camera or library)
+                print(photo.image) // Final image selected by the user
+                print(photo.originalImage) // original image selected by the user, unfiltered
+                print(photo.modifiedImage) // Transformed image, can be nil
+                print(photo.exifMeta) // Print exif meta data of original image.
+                self.imageView.image=photo.image
+               
+            }
+            picker.dismiss(animated: true, completion: nil)
+            
+            picker.didFinishPicking { [unowned picker] items, cancelled in
+                for item in items {
+                    switch item {
+                    case .photo(let photo):
+                        print(photo)
+                    case .video(let video):
+                        print(video)
+                    }
+                }
+                picker.dismiss(animated: true, completion: nil)
+            }
+        }
+        present(picker, animated: true, completion: nil)
+        //        let imagePickerController = ImagePickerController()
+        //        imagePickerController.delegate = self
+        //        present(imagePickerController, animated: true, completion: nil)
+    }
+    
+    func uploadImage(){
+        
+        let uiImage: UIImage = self.imageView.image!
+        
+//                let imageData = uiImage.compress(to: 300)
+        let uiImages = uiImage.wxCompress()
+
+        let imageData: Data = uiImages.jpegData(compressionQuality: 0.1) ?? Data()
+        let imageStr: String = imageData.base64EncodedString()
+        
+        // send request to server
+        guard let url: URL = URL(string: "http://test.ndvhs.com/index.php") else {
+            print("invalid URL")
+            return
+        }
+        
+        // create parameters
+        let paramStr: String = "image=\(imageStr)"
+        let paramData: Data = paramStr.data(using: .utf8) ?? Data()
+        
+        var urlRequest: URLRequest = URLRequest(url: url)
+        urlRequest.httpMethod = "POST"
+        urlRequest.httpBody = paramData
+        
+        // required for sending large data
+        urlRequest.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        
+        // send the request
+        URLSession.shared.dataTask(with: urlRequest, completionHandler: { (data, response, error) in
+            guard let data = data else {
+                print("invalid data")
+                return
+            }
+            
+            // show response in string
+            let responseStr: String = String(data: data, encoding: .utf8) ?? ""
+            print(responseStr)
+        })
+        .resume()
+        
+        
+        
+    }
+    
     func createTicket(comlete: @escaping()->()){
         let alert = UIAlertController(title: nil, message: "Creating Ticket...", preferredStyle: .alert)
 

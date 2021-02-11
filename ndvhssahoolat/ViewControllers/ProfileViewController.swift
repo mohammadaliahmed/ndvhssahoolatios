@@ -22,6 +22,8 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var housenumber: UITextField!
     @IBOutlet weak var phone: UITextField!
     
+    let imgUri:String! = nil
+    
     
     @IBAction func updateBtn(_ sender: Any) {
         
