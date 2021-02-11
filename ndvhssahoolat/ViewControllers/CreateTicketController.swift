@@ -8,12 +8,13 @@
 import UIKit
 
 class CreateTicketController: UIViewController{
-
+    
     @IBOutlet weak var descriptionTF: UITextView!
     
-   
+    
     @IBAction func submitBtn(_ sender: Any) {
         createTicket {
+            
             DispatchQueue.main.async {self.showToast(message: "Done", font: .systemFont(ofSize: 12.0))
             }
         }
@@ -39,7 +40,7 @@ class CreateTicketController: UIViewController{
         descriptionTF.layer.borderColor=myColor.cgColor
         descriptionTF.layer.borderWidth = 0.6
         descriptionTF.layer.cornerRadius = 6.0
-
+        
         departmentTF.inputView = departmentPickerView
         priorityTF.inputView = prioritiyPickerView
         
@@ -53,43 +54,43 @@ class CreateTicketController: UIViewController{
         prioritiyPickerView.tag=2
         
         
-  
+        
         getDataFromServer {
             self.reloadInputViews()
         }
-            
+        
         
         
         // Do any additional setup after loading the view.
     }
     func createTicket(comlete: @escaping()->()){
-        
+        let alert = UIAlertController(title: nil, message: "Creating Ticket...", preferredStyle: .alert)
+
+        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.startAnimating();
+
+        alert.view.addSubview(loadingIndicator)
+        present(alert, animated: true, completion: nil)
         let myValue = Configuration.value(defaultValue: "default_value", forKey: "userid")
         
         let postRequest=PostRequest(api_username: "WF9.FJ8u'FP{c5Pw",api_password: "3B~fauh5s93j[FKb",id: myValue ,title: titleTF.text  ?? "",
                                     description: descriptionTF.text ?? "",priority: priorityTF.text ?? "" , department_id: departmentId)
         
-        let apiRequest=APIRequest(endpoint: "ticket/getDepartments")
+        let apiRequest=APIRequest(endpoint: "ticket/createTicket")
         apiRequest.createTicket(postRequest: postRequest, completion: { result in
-            switch result{
-            case .success(let message):
-                self.departmentsList=message.departments
-                
-                
-                DispatchQueue.main.async {
-                    comlete()
-                    
-                }
-                
-                
-                
-            case .failure(let error):
-                print ("error: \(error)")
-                
+            DispatchQueue.main.async {
+                self.dismiss(animated: false, completion: nil)
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let mainTabBarController = storyboard.instantiateViewController(identifier: "MainTabBarController")
+                mainTabBarController.modalPresentationStyle = .fullScreen
+                self.present(mainTabBarController, animated: true, completion: nil)
             }
+            
+            
         })
     }
-
+    
     func getDataFromServer(comlete: @escaping()->()){
         
         
@@ -116,7 +117,7 @@ class CreateTicketController: UIViewController{
             }
         })
     }
-        
+    
 }
 
 

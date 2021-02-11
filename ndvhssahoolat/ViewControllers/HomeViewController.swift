@@ -57,19 +57,19 @@ class HomeViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
         
     }
     func getDataFromServer(comlete: @escaping()->()){
-        
-        let postRequest=PostRequest(api_username: "WF9.FJ8u'FP{c5Pw",api_password: "3B~fauh5s93j[FKb",phone: "", password: "",id: "2")
+        let myValue = Configuration.value(defaultValue: "default_value", forKey: "userid")
+        let postRequest=PostRequest(api_username: "WF9.FJ8u'FP{c5Pw",api_password: "3B~fauh5s93j[FKb",phone: "", password: "",id: myValue)
         
         
         
         let apiRequest=APIRequest(endpoint: "ticket/allTickets")
         apiRequest.hometickets(postRequest: postRequest, completion: { result in
+          
             switch result{
             case .success(let message):
                 self.tickets=message.tickets
-                print(message.tickets[1].subject!)
-                
                 DispatchQueue.main.async {
+
                     comlete()
                     
                 }

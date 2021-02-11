@@ -109,6 +109,9 @@ struct APIRequest{
                     completion(.failure(.responseProblem))
                     return
                 }
+                if let JSONString = String(data: jsonData, encoding: String.Encoding.utf8) {
+                   print(JSONString)
+                }
                 do{
                     let messageData=try JSONDecoder().decode(APIResponse.self,from: jsonData)
                     completion(.success(messageData))
@@ -134,6 +137,9 @@ struct APIRequest{
                         jsonData=data else{
                     completion(.failure(.responseProblem))
                     return
+                }
+                if let JSONString = String(data: jsonData, encoding: String.Encoding.utf8) {
+                   print(JSONString)
                 }
                 do{
                     let messageData=try JSONDecoder().decode(APIResponse.self,from: jsonData)
