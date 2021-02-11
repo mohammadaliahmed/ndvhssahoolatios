@@ -1,0 +1,6 @@
+framework module Pods_ndvhssahoolatTests {
+  umbrella header "Pods-ndvhssahoolatTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

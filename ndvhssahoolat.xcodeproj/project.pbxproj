@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		132637D225D2BFC400B4CCE1 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132637D125D2BFC400B4CCE1 /* ProfileViewController.swift */; };
 		132637D725D3A05900B4CCE1 /* FaqsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132637D625D3A05900B4CCE1 /* FaqsViewController.swift */; };
-		132637E325D3A6EF00B4CCE1 /* TinyConstraints in Frameworks */ = {isa = PBXBuildFile; productRef = 132637E225D3A6EF00B4CCE1 /* TinyConstraints */; };
+		132637E325D3A6EF00B4CCE1 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 132637E225D3A6EF00B4CCE1 /* SwiftPackageProductDependency */; };
 		132637EE25D3ADE600B4CCE1 /* FaqModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132637ED25D3ADE600B4CCE1 /* FaqModel.swift */; };
 		1362CA7F25D1031B001F0E87 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1362CA7E25D1031B001F0E87 /* APIRequest.swift */; };
 		1362CA8425D1050B001F0E87 /* ApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1362CA8325D1050B001F0E87 /* ApiResponse.swift */; };
@@ -20,6 +20,7 @@
 		13A0659925D3EB9A00FADCEB /* CreateTicketController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A0659825D3EB9A00FADCEB /* CreateTicketController.swift */; };
 		13A0659E25D4070300FADCEB /* DepartmentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A0659D25D4070300FADCEB /* DepartmentModel.swift */; };
 		13AD7F0D25CBD4A100B03583 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AD7F0C25CBD4A100B03583 /* Configuration.swift */; };
+		13B4B8D225D50C0100B9B61A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 13B4B8D125D50C0100B9B61A /* GoogleService-Info.plist */; };
 		13D6D22325CA78E700A81BA6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D6D22225CA78E700A81BA6 /* AppDelegate.swift */; };
 		13D6D22525CA78E700A81BA6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D6D22425CA78E700A81BA6 /* SceneDelegate.swift */; };
 		13D6D22725CA78E700A81BA6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D6D22625CA78E700A81BA6 /* ViewController.swift */; };
@@ -36,6 +37,8 @@
 		13E189BE25D272D8006627CB /* StaffModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E189BD25D272D8006627CB /* StaffModel.swift */; };
 		13E189C325D283B2006627CB /* CustomCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E189C225D283B2006627CB /* CustomCellController.swift */; };
 		13E4D9EC25CBB1D500A6039D /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E4D9EB25CBB1D500A6039D /* Person.swift */; };
+		7239CFE46ED86584FB005BBF /* Pods_ndvhssahoolatTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBE12621E445965D23FCB68A /* Pods_ndvhssahoolatTests.framework */; };
+		F251CF6AA306FF67571F0159 /* Pods_ndvhssahoolat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFAEE21892E21F6493FDE58E /* Pods_ndvhssahoolat.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +59,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		08FA08197C81B2EF4DC56A4D /* Pods-ndvhssahoolat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ndvhssahoolat.debug.xcconfig"; path = "Target Support Files/Pods-ndvhssahoolat/Pods-ndvhssahoolat.debug.xcconfig"; sourceTree = "<group>"; };
 		132637D125D2BFC400B4CCE1 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		132637D625D3A05900B4CCE1 /* FaqsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaqsViewController.swift; sourceTree = "<group>"; };
 		132637ED25D3ADE600B4CCE1 /* FaqModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaqModel.swift; sourceTree = "<group>"; };
@@ -68,6 +72,7 @@
 		13A0659825D3EB9A00FADCEB /* CreateTicketController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTicketController.swift; sourceTree = "<group>"; };
 		13A0659D25D4070300FADCEB /* DepartmentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentModel.swift; sourceTree = "<group>"; };
 		13AD7F0C25CBD4A100B03583 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		13B4B8D125D50C0100B9B61A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		13D6D21F25CA78E700A81BA6 /* ndvhssahoolat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ndvhssahoolat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13D6D22225CA78E700A81BA6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		13D6D22425CA78E700A81BA6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -90,6 +95,11 @@
 		13E189BD25D272D8006627CB /* StaffModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaffModel.swift; sourceTree = "<group>"; };
 		13E189C225D283B2006627CB /* CustomCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellController.swift; sourceTree = "<group>"; };
 		13E4D9EB25CBB1D500A6039D /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		349A5D346D2D24331A4981F2 /* Pods-ndvhssahoolatTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ndvhssahoolatTests.debug.xcconfig"; path = "Target Support Files/Pods-ndvhssahoolatTests/Pods-ndvhssahoolatTests.debug.xcconfig"; sourceTree = "<group>"; };
+		72C897205C4A7FCA8DCCE981 /* Pods-ndvhssahoolat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ndvhssahoolat.release.xcconfig"; path = "Target Support Files/Pods-ndvhssahoolat/Pods-ndvhssahoolat.release.xcconfig"; sourceTree = "<group>"; };
+		CBE12621E445965D23FCB68A /* Pods_ndvhssahoolatTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ndvhssahoolatTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DFAEE21892E21F6493FDE58E /* Pods_ndvhssahoolat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ndvhssahoolat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F2438933A0A1701FDB5A7C3C /* Pods-ndvhssahoolatTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ndvhssahoolatTests.release.xcconfig"; path = "Target Support Files/Pods-ndvhssahoolatTests/Pods-ndvhssahoolatTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,7 +107,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				132637E325D3A6EF00B4CCE1 /* TinyConstraints in Frameworks */,
+				132637E325D3A6EF00B4CCE1 /* BuildFile in Frameworks */,
+				F251CF6AA306FF67571F0159 /* Pods_ndvhssahoolat.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,6 +116,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7239CFE46ED86584FB005BBF /* Pods_ndvhssahoolatTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,6 +178,7 @@
 				13D6D24325CA78E900A81BA6 /* ndvhssahoolatUITests */,
 				13D6D22025CA78E700A81BA6 /* Products */,
 				6B3AA8C0FA9097FCA6E5A8CF /* Pods */,
+				E5AD12791A174FDAE3646BA4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -191,6 +204,7 @@
 				13D6D22825CA78E700A81BA6 /* Main.storyboard */,
 				13D6D22B25CA78E800A81BA6 /* Assets.xcassets */,
 				13D6D22D25CA78E800A81BA6 /* LaunchScreen.storyboard */,
+				13B4B8D125D50C0100B9B61A /* GoogleService-Info.plist */,
 				13D6D23025CA78E800A81BA6 /* Info.plist */,
 				13AD7F0C25CBD4A100B03583 /* Configuration.swift */,
 			);
@@ -218,8 +232,21 @@
 		6B3AA8C0FA9097FCA6E5A8CF /* Pods */ = {
 			isa = PBXGroup;
 			children = (
+				08FA08197C81B2EF4DC56A4D /* Pods-ndvhssahoolat.debug.xcconfig */,
+				72C897205C4A7FCA8DCCE981 /* Pods-ndvhssahoolat.release.xcconfig */,
+				349A5D346D2D24331A4981F2 /* Pods-ndvhssahoolatTests.debug.xcconfig */,
+				F2438933A0A1701FDB5A7C3C /* Pods-ndvhssahoolatTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		E5AD12791A174FDAE3646BA4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DFAEE21892E21F6493FDE58E /* Pods_ndvhssahoolat.framework */,
+				CBE12621E445965D23FCB68A /* Pods_ndvhssahoolatTests.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,9 +256,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13D6D24925CA78E900A81BA6 /* Build configuration list for PBXNativeTarget "ndvhssahoolat" */;
 			buildPhases = (
+				086D1B5880D1C66AA63250FF /* [CP] Check Pods Manifest.lock */,
 				13D6D21B25CA78E700A81BA6 /* Sources */,
 				13D6D21C25CA78E700A81BA6 /* Frameworks */,
 				13D6D21D25CA78E700A81BA6 /* Resources */,
+				CA076FE7F6F9C28DA85EB13A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -239,7 +268,7 @@
 			);
 			name = ndvhssahoolat;
 			packageProductDependencies = (
-				132637E225D3A6EF00B4CCE1 /* TinyConstraints */,
+				132637E225D3A6EF00B4CCE1 /* SwiftPackageProductDependency */,
 			);
 			productName = ndvhssahoolat;
 			productReference = 13D6D21F25CA78E700A81BA6 /* ndvhssahoolat.app */;
@@ -249,6 +278,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13D6D24C25CA78E900A81BA6 /* Build configuration list for PBXNativeTarget "ndvhssahoolatTests" */;
 			buildPhases = (
+				804E91B2B081DB3AFE3175F7 /* [CP] Check Pods Manifest.lock */,
 				13D6D23125CA78E900A81BA6 /* Sources */,
 				13D6D23225CA78E900A81BA6 /* Frameworks */,
 				13D6D23325CA78E900A81BA6 /* Resources */,
@@ -313,7 +343,7 @@
 			);
 			mainGroup = 13D6D21625CA78E700A81BA6;
 			packageReferences = (
-				132637E125D3A6EF00B4CCE1 /* XCRemoteSwiftPackageReference "TinyConstraints" */,
+				132637E125D3A6EF00B4CCE1 /* RemoteSwiftPackageReference */,
 			);
 			productRefGroup = 13D6D22025CA78E700A81BA6 /* Products */;
 			projectDirPath = "";
@@ -332,6 +362,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13D6D22F25CA78E800A81BA6 /* LaunchScreen.storyboard in Resources */,
+				13B4B8D225D50C0100B9B61A /* GoogleService-Info.plist in Resources */,
 				13D6D22C25CA78E800A81BA6 /* Assets.xcassets in Resources */,
 				13D6D22A25CA78E700A81BA6 /* Main.storyboard in Resources */,
 			);
@@ -352,6 +383,70 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		086D1B5880D1C66AA63250FF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ndvhssahoolat-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		804E91B2B081DB3AFE3175F7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ndvhssahoolatTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CA076FE7F6F9C28DA85EB13A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ndvhssahoolat/Pods-ndvhssahoolat-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ndvhssahoolat/Pods-ndvhssahoolat-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ndvhssahoolat/Pods-ndvhssahoolat-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		13D6D21B25CA78E700A81BA6 /* Sources */ = {
@@ -553,6 +648,7 @@
 		};
 		13D6D24A25CA78E900A81BA6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 08FA08197C81B2EF4DC56A4D /* Pods-ndvhssahoolat.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -573,6 +669,7 @@
 		};
 		13D6D24B25CA78E900A81BA6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 72C897205C4A7FCA8DCCE981 /* Pods-ndvhssahoolat.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -593,6 +690,7 @@
 		};
 		13D6D24D25CA78E900A81BA6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 349A5D346D2D24331A4981F2 /* Pods-ndvhssahoolatTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -614,6 +712,7 @@
 		};
 		13D6D24E25CA78E900A81BA6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F2438933A0A1701FDB5A7C3C /* Pods-ndvhssahoolatTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -713,7 +812,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		132637E125D3A6EF00B4CCE1 /* XCRemoteSwiftPackageReference "TinyConstraints" */ = {
+		132637E125D3A6EF00B4CCE1 /* RemoteSwiftPackageReference */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/roberthein/TinyConstraints.git";
 			requirement = {
@@ -724,9 +823,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		132637E225D3A6EF00B4CCE1 /* TinyConstraints */ = {
+		132637E225D3A6EF00B4CCE1 /* SwiftPackageProductDependency */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 132637E125D3A6EF00B4CCE1 /* XCRemoteSwiftPackageReference "TinyConstraints" */;
+			package = 132637E125D3A6EF00B4CCE1 /* RemoteSwiftPackageReference */;
 			productName = TinyConstraints;
 		};
 /* End XCSwiftPackageProductDependency section */
