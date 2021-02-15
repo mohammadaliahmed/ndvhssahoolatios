@@ -44,6 +44,7 @@ extension UIViewController {
     }
     
     @objc func dismissKeyboard() {
+        self.view.hideAllToasts()
         view.endEditing(true)
     }
 }

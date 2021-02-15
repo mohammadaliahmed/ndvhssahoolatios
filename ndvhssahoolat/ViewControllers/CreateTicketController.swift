@@ -9,6 +9,7 @@ import UIKit
 import YPImagePicker
 import SwiftUI
 import WXImageCompress
+import Toast_Swift
 
 class CreateTicketController: UIViewController{
     
@@ -21,32 +22,56 @@ class CreateTicketController: UIViewController{
     
     
     
+    
     @IBAction func submitBtn(_ sender: Any) {
-        showToastt(message: "Please enter title", font: .systemFont(ofSize: 14.0))
-//        if(titleTF.text!.count<5){
-//            titleTF.setError("Please enter title", show: true)
-//            DispatchQueue.main.async {self.showToast(message: "Please enter title", font: .systemFont(ofSize: 14.0))}
-//        }
-//        let alert = UIAlertController(title: nil, message: "Creating Ticket...", preferredStyle: .alert)
-//
-//        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
-//        loadingIndicator.hidesWhenStopped = true
-//        loadingIndicator.startAnimating();
-//
-//        alert.view.addSubview(loadingIndicator)
-//        present(alert, animated: true, completion: nil)
-//        if(imgSelected){
-//            uploadImage()
-//        }else{
-//            createTicket {
-//
-//                DispatchQueue.main.async {self.showToast(message: "Done", font: .systemFont(ofSize: 12.0))
-//                }
-//            }
-//        }
-       
+        
+        
+        
+        if(departmentId==nil){
+            self.view.makeToast("Please select department", duration: 1.0)
+        }else if (priorityTF.text==""){
+            self.view.makeToast("Please select priority", duration: 1.0)
+        }
+        else if(titleTF.text!.count<5){
+            self.view.makeToast("Please enter title", duration: 1.0)
+        }else if (descriptionTF.text==""){
+            self.view.makeToast("Please description", duration: 1.0)
+        }
+        else if (descriptionTF.text!.count<10){
+            self.view.makeToast("Please explain your problem", duration: 1.0)
+        }else{
+            
+            
+            let alert = UIAlertController(title: "Alert", message: "Create ticket?", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.default, handler: { action in
+            }))
+            alert.addAction(UIAlertAction(title: "Yes", style: UIAlertAction.Style.destructive, handler: { action in
+                let alert2 = UIAlertController(title: nil, message: "Creating Ticket...", preferredStyle: .alert)
+                
+                let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
+                loadingIndicator.hidesWhenStopped = true
+                loadingIndicator.startAnimating();
+                
+                alert2.view.addSubview(loadingIndicator)
+                self.present(alert2, animated: true, completion: nil)
+                if(self.imgSelected){
+                    self.uploadImage()
+                }else{
+                    self.createTicket {
+                        
+                        DispatchQueue.main.async {self.showToast(message: "Done", font: .systemFont(ofSize: 12.0))
+                        }
+                    }
+                }
+            }))
+            self.present(alert, animated: true, completion: nil)
+            
+            
+            
+           
+        }
     }
-  
+    
     var departmentsList=[DepartmentModel]()
     let priorities = ["low","medium","high"]
     
@@ -130,18 +155,18 @@ class CreateTicketController: UIViewController{
     
     
     func createTicket(comlete: @escaping()->()){
-       
+        
         let myValue = Configuration.value(defaultValue: "default_value", forKey: "userid")
         var postRequest:PostRequest!
         if(imgSelected){
-             postRequest=PostRequest(api_username: "WF9.FJ8u'FP{c5Pw",api_password: "3B~fauh5s93j[FKb",id: myValue ,title: titleTF.text  ?? "",
-                                        description: descriptionTF.text ?? "",priority: priorityTF.text ?? "" , department_id: departmentId,liveUrl: liveUrl)
+            postRequest=PostRequest(api_username: "WF9.FJ8u'FP{c5Pw",api_password: "3B~fauh5s93j[FKb",id: myValue ,title: titleTF.text  ?? "",
+                                    description: descriptionTF.text ?? "",priority: priorityTF.text ?? "" , department_id: departmentId,liveUrl: liveUrl)
         }
         else{
-             postRequest=PostRequest(api_username: "WF9.FJ8u'FP{c5Pw",api_password: "3B~fauh5s93j[FKb",id: myValue ,title: titleTF.text  ?? "",
-                                        description: descriptionTF.text ?? "",priority: priorityTF.text ?? "" , department_id: departmentId)
+            postRequest=PostRequest(api_username: "WF9.FJ8u'FP{c5Pw",api_password: "3B~fauh5s93j[FKb",id: myValue ,title: titleTF.text  ?? "",
+                                    description: descriptionTF.text ?? "",priority: priorityTF.text ?? "" , department_id: departmentId)
         }
-       
+        
         
         let apiRequest=APIRequest(endpoint: "ticket/createTicket")
         apiRequest.createTicket(postRequest: postRequest, completion: { result in

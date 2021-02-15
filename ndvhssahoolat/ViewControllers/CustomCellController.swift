@@ -14,6 +14,8 @@ class CustomCellController: UITableViewCell {
    
     @IBOutlet weak var subj: UILabel!
     
+
+    @IBOutlet weak var ticketStatusView: UIView!
     @IBOutlet weak var cellView: UIView!
     @IBOutlet weak var desc: UILabel!
     override class func awakeFromNib() {

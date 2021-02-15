@@ -10,13 +10,12 @@ import YPImagePicker
 import SwiftUI
 import WXImageCompress
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController, UITextFieldDelegate {
     
     @State var selectedImage: Image? = Image("")
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var name: UITextField!
-    @IBOutlet weak var username: UITextField!
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var block: UITextField!
     @IBOutlet weak var housenumber: UITextField!
@@ -25,7 +24,9 @@ class ProfileViewController: UIViewController {
     let imgUri:String! = nil
     var imgSelected:Bool = false
     var liveUrl:String!
-    
+    var textFields: [UITextField] {
+            return [name, phone, housenumber, block,email]
+        }
     
     @IBAction func updateBtn(_ sender: Any) {
         let alert = UIAlertController(title: nil, message: "Saving profile...", preferredStyle: .alert)
@@ -65,7 +66,8 @@ class ProfileViewController: UIViewController {
     public  func savedata(){
         
         let myValue = Configuration.value(defaultValue: "default_value", forKey: "userid")
-        let postRequest=PostRequest(api_username: "WF9.FJ8u'FP{c5Pw",api_password: "3B~fauh5s93j[FKb",id: myValue,name: name.text ?? "",
+        let usenr = Configuration.value(defaultValue: "default_value", forKey: "username")
+        let postRequest=PostRequest(api_username: "WF9.FJ8u'FP{c5Pw",api_password: "3B~fauh5s93j[FKb",id: myValue,username: usenr,name: name.text ?? "",
                                     phone: phone.text ?? "",housenumber: housenumber.text ?? "",block: block.text ?? "",gender: "Male",liveUrl: liveUrl)
         
         
@@ -112,7 +114,8 @@ class ProfileViewController: UIViewController {
         imageView.addGestureRecognizer(tap)
         imageView.isUserInteractionEnabled = true
         imgSelected=false
-        
+        self.imageView.layer.cornerRadius = self.imageView.frame.height / 2
+        self.imageView.clipsToBounds = true
         
         
         // Do any additional setup after loading the view.
@@ -209,7 +212,9 @@ class ProfileViewController: UIViewController {
         housenumber.text=Configuration.value(defaultValue: "default_value", forKey: "house")
         block.text=Configuration.value(defaultValue: "default_value", forKey: "block")
         email.text=Configuration.value(defaultValue: "default_value", forKey: "email")
+       
         liveUrl=Configuration.value(defaultValue: "default_value", forKey: "avatar")
+        
         var imgUrl="http://sahoolat.ndvhs.com/storage/"+liveUrl
         if let url = URL(string: imgUrl) {
             let task = URLSession.shared.dataTask(with: url) { data, response, error in
@@ -223,7 +228,22 @@ class ProfileViewController: UIViewController {
             task.resume()
         }
         
+       
+        textFields.forEach { $0.delegate = self }
+        
+        
+        
+        
     }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+            if let selectedTextFieldIndex = textFields.firstIndex(of: textField), selectedTextFieldIndex < textFields.count - 1 {
+                textFields[selectedTextFieldIndex + 1].becomeFirstResponder()
+            } else {
+                textField.resignFirstResponder() // last textfield, dismiss keyboard directly
+            }
+            return true
+        }
+
     /*
      // MARK: - Navigation
      

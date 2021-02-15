@@ -18,6 +18,7 @@ class PostRequest:Codable{
     var gender:String!
     var housenumber:String!
     var block:String!
+    var username:String!
     
     var department_id:String!
     var priority:String!
@@ -60,13 +61,14 @@ class PostRequest:Codable{
     }
     
     
-    init(api_username:String,api_password:String,id:String,name:String,phone:String,housenumber:String,block:String,gender:String,liveUrl:String) {
+    init(api_username:String,api_password:String,id:String,username:String,name:String,phone:String,housenumber:String,block:String,gender:String,liveUrl:String) {
         self.api_username=api_username
         self.api_password=api_password
         self.phone=phone
         self.id=id
         self.liveUrl=liveUrl
         self.housenumber=housenumber
+        self.username=username
         self.block=block
         self.gender=gender
         self.name=name

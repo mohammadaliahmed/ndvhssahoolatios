@@ -9,8 +9,10 @@ import UIKit
 
 class HomeViewController: UIViewController ,UITableViewDelegate,UITableViewDataSource{
     
+    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var topHeader: UIImageView!
     @IBOutlet weak var tableView: UITableView!
+   
     var tickets=[Ticket]()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +28,24 @@ class HomeViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
         
         topHeader.layer.cornerRadius=10
         
+        
+        
+        let myValue = Configuration.value(defaultValue: "default_value", forKey: "avatar")
+        var imgUrl="http://sahoolat.ndvhs.com/storage/"+myValue
+        if let url = URL(string: imgUrl) {
+            let task = URLSession.shared.dataTask(with: url) { data, response, error in
+                guard let data = data, error == nil else { return }
+                
+                DispatchQueue.main.async { /// execute on main thread
+                    self.imageView.image = UIImage(data: data)
+                    self.imageView.layer.cornerRadius = self.imageView.frame.height / 2
+                    self.imageView.clipsToBounds = true
+                }
+            }
+            
+            task.resume()
+        }
+        
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tickets.count
@@ -39,17 +59,34 @@ class HomeViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
         
         cell.subj.text=tickets[indexPath.row].subject!
         cell.desc.text=tickets[indexPath.row].description!
+        var ticket=tickets[indexPath.row]
         
         cell.cellView.layer.cornerRadius = 5
         cell.cellView.layer.shadowOffset = CGSize(width: 0, height: 2)
         cell.cellView.layer.shadowRadius = 2
         cell.cellView.layer.shadowOpacity = 0.3
+      
+       
         cell.cellView.layer.shadowColor = UIColor.black.cgColor
         cell.cellView.layer.shadowPath = UIBezierPath(roundedRect: cell.cellView.bounds,
                                                       byRoundingCorners: .allCorners, cornerRadii: CGSize(width: 2, height:
                                                                                                             8)).cgPath
         cell.cellView.layer.shouldRasterize = true
         cell.cellView.layer.rasterizationScale = UIScreen.main.scale
+        
+        
+        if (ticket.status=="closed") {
+            cell.ticketStatusView.backgroundColor=UIColor.green
+        }else if(ticket.status=="resolved"){
+            cell.ticketStatusView.backgroundColor=UIColor.orange
+        }
+        else if(ticket.status=="pending"){
+            cell.ticketStatusView.backgroundColor=UIColor.blue
+        }else if(ticket.status=="processing"){
+            cell.ticketStatusView.backgroundColor=UIColor.purple
+        }else{
+            cell.ticketStatusView.backgroundColor=UIColor.red
+        }
         
         
         return cell;
@@ -97,3 +134,4 @@ class HomeViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
      */
     
 }
+

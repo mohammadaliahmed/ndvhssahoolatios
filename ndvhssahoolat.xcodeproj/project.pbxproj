@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		132637D225D2BFC400B4CCE1 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132637D125D2BFC400B4CCE1 /* ProfileViewController.swift */; };
 		132637D725D3A05900B4CCE1 /* FaqsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132637D625D3A05900B4CCE1 /* FaqsViewController.swift */; };
-		132637E325D3A6EF00B4CCE1 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 132637E225D3A6EF00B4CCE1 /* SwiftPackageProductDependency */; };
+		132637E325D3A6EF00B4CCE1 /* TinyConstraints in Frameworks */ = {isa = PBXBuildFile; productRef = 132637E225D3A6EF00B4CCE1 /* TinyConstraints */; };
 		132637EE25D3ADE600B4CCE1 /* FaqModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132637ED25D3ADE600B4CCE1 /* FaqModel.swift */; };
 		1362CA7F25D1031B001F0E87 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1362CA7E25D1031B001F0E87 /* APIRequest.swift */; };
 		1362CA8425D1050B001F0E87 /* ApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1362CA8325D1050B001F0E87 /* ApiResponse.swift */; };
@@ -21,6 +21,7 @@
 		13A0659E25D4070300FADCEB /* DepartmentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A0659D25D4070300FADCEB /* DepartmentModel.swift */; };
 		13AD7F0D25CBD4A100B03583 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AD7F0C25CBD4A100B03583 /* Configuration.swift */; };
 		13B4B8D225D50C0100B9B61A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 13B4B8D125D50C0100B9B61A /* GoogleService-Info.plist */; };
+		13CE120F25DA725F003FB875 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = 13CE120E25DA725F003FB875 /* Toast */; };
 		13D6D22325CA78E700A81BA6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D6D22225CA78E700A81BA6 /* AppDelegate.swift */; };
 		13D6D22525CA78E700A81BA6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D6D22425CA78E700A81BA6 /* SceneDelegate.swift */; };
 		13D6D22725CA78E700A81BA6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D6D22625CA78E700A81BA6 /* ViewController.swift */; };
@@ -107,7 +108,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				132637E325D3A6EF00B4CCE1 /* BuildFile in Frameworks */,
+				13CE120F25DA725F003FB875 /* Toast in Frameworks */,
+				132637E325D3A6EF00B4CCE1 /* TinyConstraints in Frameworks */,
 				F251CF6AA306FF67571F0159 /* Pods_ndvhssahoolat.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -268,7 +270,8 @@
 			);
 			name = ndvhssahoolat;
 			packageProductDependencies = (
-				132637E225D3A6EF00B4CCE1 /* SwiftPackageProductDependency */,
+				132637E225D3A6EF00B4CCE1 /* TinyConstraints */,
+				13CE120E25DA725F003FB875 /* Toast */,
 			);
 			productName = ndvhssahoolat;
 			productReference = 13D6D21F25CA78E700A81BA6 /* ndvhssahoolat.app */;
@@ -343,7 +346,8 @@
 			);
 			mainGroup = 13D6D21625CA78E700A81BA6;
 			packageReferences = (
-				132637E125D3A6EF00B4CCE1 /* RemoteSwiftPackageReference */,
+				132637E125D3A6EF00B4CCE1 /* XCRemoteSwiftPackageReference "TinyConstraints" */,
+				13CE120D25DA725F003FB875 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 			);
 			productRefGroup = 13D6D22025CA78E700A81BA6 /* Products */;
 			projectDirPath = "";
@@ -812,7 +816,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		132637E125D3A6EF00B4CCE1 /* RemoteSwiftPackageReference */ = {
+		132637E125D3A6EF00B4CCE1 /* XCRemoteSwiftPackageReference "TinyConstraints" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/roberthein/TinyConstraints.git";
 			requirement = {
@@ -820,13 +824,26 @@
 				minimumVersion = 4.0.1;
 			};
 		};
+		13CE120D25DA725F003FB875 /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scalessec/Toast-Swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		132637E225D3A6EF00B4CCE1 /* SwiftPackageProductDependency */ = {
+		132637E225D3A6EF00B4CCE1 /* TinyConstraints */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 132637E125D3A6EF00B4CCE1 /* RemoteSwiftPackageReference */;
+			package = 132637E125D3A6EF00B4CCE1 /* XCRemoteSwiftPackageReference "TinyConstraints" */;
 			productName = TinyConstraints;
+		};
+		13CE120E25DA725F003FB875 /* Toast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 13CE120D25DA725F003FB875 /* XCRemoteSwiftPackageReference "Toast-Swift" */;
+			productName = Toast;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

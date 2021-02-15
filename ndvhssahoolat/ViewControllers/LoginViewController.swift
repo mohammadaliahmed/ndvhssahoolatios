@@ -11,6 +11,15 @@ class LoginViewController: UIViewController {
     
     
     @IBOutlet weak var password: UITextField!
+    
+    
+    
+    @IBAction func registerBtn(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let mainTabBarController = storyboard.instantiateViewController(identifier: "registerStory")
+        mainTabBarController.modalPresentationStyle = .fullScreen
+        self.present(mainTabBarController, animated: true, completion: nil)
+    }
     @IBOutlet weak var phonenumber: UITextField!
     @IBAction func forgotPassword(_ sender: Any) {
     }
