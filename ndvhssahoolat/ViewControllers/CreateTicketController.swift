@@ -15,25 +15,46 @@ class CreateTicketController: UIViewController{
     @IBOutlet weak var descriptionTF: UITextView!
     
     @IBOutlet weak var imageView: UIImageView!
-    
-    @IBAction func submitBtn(_ sender: Any) {
-        createTicket {
-            
-            DispatchQueue.main.async {self.showToast(message: "Done", font: .systemFont(ofSize: 12.0))
-            }
-        }
-    }
     @IBOutlet weak var titleTF: UITextField!
     @IBOutlet weak var priorityTF: UITextField!
     @IBOutlet weak var departmentTF: UITextField!
     
+    
+    
+    @IBAction func submitBtn(_ sender: Any) {
+        showToastt(message: "Please enter title", font: .systemFont(ofSize: 14.0))
+//        if(titleTF.text!.count<5){
+//            titleTF.setError("Please enter title", show: true)
+//            DispatchQueue.main.async {self.showToast(message: "Please enter title", font: .systemFont(ofSize: 14.0))}
+//        }
+//        let alert = UIAlertController(title: nil, message: "Creating Ticket...", preferredStyle: .alert)
+//
+//        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
+//        loadingIndicator.hidesWhenStopped = true
+//        loadingIndicator.startAnimating();
+//
+//        alert.view.addSubview(loadingIndicator)
+//        present(alert, animated: true, completion: nil)
+//        if(imgSelected){
+//            uploadImage()
+//        }else{
+//            createTicket {
+//
+//                DispatchQueue.main.async {self.showToast(message: "Done", font: .systemFont(ofSize: 12.0))
+//                }
+//            }
+//        }
+       
+    }
+  
     var departmentsList=[DepartmentModel]()
     let priorities = ["low","medium","high"]
     
     var departmentPickerView=UIPickerView()
     var prioritiyPickerView=UIPickerView()
     var departmentId:String!
-    
+    var liveUrl:String!
+    var imgSelected:Bool=false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,13 +98,14 @@ class CreateTicketController: UIViewController{
         let picker = YPImagePicker()
         picker.didFinishPicking { [unowned picker] items, _ in
             if let photo = items.singlePhoto {
-                print(photo.fromCamera) // Image source (camera or library)
-                print(photo.image) // Final image selected by the user
-                print(photo.originalImage) // original image selected by the user, unfiltered
-                print(photo.modifiedImage) // Transformed image, can be nil
-                print(photo.exifMeta) // Print exif meta data of original image.
+                //                print(photo.fromCamera) // Image source (camera or library)
+                //                print(photo.image) // Final image selected by the user
+                //                print(photo.originalImage) // original image selected by the user, unfiltered
+                //                print(photo.modifiedImage) // Transformed image, can be nil
+                //                print(photo.exifMeta) // Print exif meta data of original image.
                 self.imageView.image=photo.image
-               
+                self.imgSelected=true
+                
             }
             picker.dismiss(animated: true, completion: nil)
             
@@ -105,63 +127,21 @@ class CreateTicketController: UIViewController{
         //        present(imagePickerController, animated: true, completion: nil)
     }
     
-    func uploadImage(){
-        
-        let uiImage: UIImage = self.imageView.image!
-        
-//                let imageData = uiImage.compress(to: 300)
-        let uiImages = uiImage.wxCompress()
-
-        let imageData: Data = uiImages.jpegData(compressionQuality: 0.1) ?? Data()
-        let imageStr: String = imageData.base64EncodedString()
-        
-        // send request to server
-        guard let url: URL = URL(string: "http://test.ndvhs.com/index.php") else {
-            print("invalid URL")
-            return
-        }
-        
-        // create parameters
-        let paramStr: String = "image=\(imageStr)"
-        let paramData: Data = paramStr.data(using: .utf8) ?? Data()
-        
-        var urlRequest: URLRequest = URLRequest(url: url)
-        urlRequest.httpMethod = "POST"
-        urlRequest.httpBody = paramData
-        
-        // required for sending large data
-        urlRequest.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
-        
-        // send the request
-        URLSession.shared.dataTask(with: urlRequest, completionHandler: { (data, response, error) in
-            guard let data = data else {
-                print("invalid data")
-                return
-            }
-            
-            // show response in string
-            let responseStr: String = String(data: data, encoding: .utf8) ?? ""
-            print(responseStr)
-        })
-        .resume()
-        
-        
-        
-    }
+    
     
     func createTicket(comlete: @escaping()->()){
-        let alert = UIAlertController(title: nil, message: "Creating Ticket...", preferredStyle: .alert)
-
-        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
-        loadingIndicator.hidesWhenStopped = true
-        loadingIndicator.startAnimating();
-
-        alert.view.addSubview(loadingIndicator)
-        present(alert, animated: true, completion: nil)
+       
         let myValue = Configuration.value(defaultValue: "default_value", forKey: "userid")
-        
-        let postRequest=PostRequest(api_username: "WF9.FJ8u'FP{c5Pw",api_password: "3B~fauh5s93j[FKb",id: myValue ,title: titleTF.text  ?? "",
-                                    description: descriptionTF.text ?? "",priority: priorityTF.text ?? "" , department_id: departmentId)
+        var postRequest:PostRequest!
+        if(imgSelected){
+             postRequest=PostRequest(api_username: "WF9.FJ8u'FP{c5Pw",api_password: "3B~fauh5s93j[FKb",id: myValue ,title: titleTF.text  ?? "",
+                                        description: descriptionTF.text ?? "",priority: priorityTF.text ?? "" , department_id: departmentId,liveUrl: liveUrl)
+        }
+        else{
+             postRequest=PostRequest(api_username: "WF9.FJ8u'FP{c5Pw",api_password: "3B~fauh5s93j[FKb",id: myValue ,title: titleTF.text  ?? "",
+                                        description: descriptionTF.text ?? "",priority: priorityTF.text ?? "" , department_id: departmentId)
+        }
+       
         
         let apiRequest=APIRequest(endpoint: "ticket/createTicket")
         apiRequest.createTicket(postRequest: postRequest, completion: { result in
@@ -202,6 +182,56 @@ class CreateTicketController: UIViewController{
                 
             }
         })
+    }
+    func uploadImage(){
+        
+        let uiImage: UIImage = self.imageView.image!
+        
+        //                let imageData = uiImage.compress(to: 300)
+        let uiImages = uiImage.wxCompress()
+        
+        let imageData: Data = uiImages.jpegData(compressionQuality: 0.1) ?? Data()
+        let imageStr: String = imageData.base64EncodedString()
+        
+        // send request to server
+        guard let url: URL = URL(string: "http://test.ndvhs.com/index.php") else {
+            print("invalid URL")
+            return
+        }
+        
+        // create parameters
+        let paramStr: String = "image=\(imageStr)"
+        let paramData: Data = paramStr.data(using: .utf8) ?? Data()
+        
+        var urlRequest: URLRequest = URLRequest(url: url)
+        urlRequest.httpMethod = "POST"
+        urlRequest.httpBody = paramData
+        
+        // required for sending large data
+        urlRequest.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        
+        // send the request
+        URLSession.shared.dataTask(with: urlRequest, completionHandler: { [self] (data, response, error) in
+            guard let data = data else {
+                print("invalid data")
+                return
+            }
+            
+            // show response in string
+            let responseStr: String = String(data: data, encoding: .utf8) ?? ""
+            print(responseStr)
+            self.liveUrl=responseStr
+            self.createTicket {
+                
+                DispatchQueue.main.async {self.showToast(message: "Done", font: .systemFont(ofSize: 12.0))
+                }
+            }
+            
+        })
+        .resume()
+        
+        
+        
     }
     
 }
@@ -248,4 +278,37 @@ extension CreateTicketController: UIPickerViewDataSource,UIPickerViewDelegate{
             return
         }
     }
+}
+
+
+extension UIViewController {
+    
+    func showToastt(message: String, font: UIFont) {
+        let toastLabel = UILabel()
+        toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        toastLabel.textColor = .white
+        toastLabel.font = font
+        toastLabel.textAlignment = .center
+        toastLabel.text = message
+        toastLabel.alpha = 1.0
+        toastLabel.layer.cornerRadius = 10
+        toastLabel.clipsToBounds = true
+        
+        let maxWidthPercentage: CGFloat = 0.8
+        let maxTitleSize = CGSize(width: view.bounds.size.width * maxWidthPercentage, height: view.bounds.size.height * maxWidthPercentage)
+        var titleSize = toastLabel.sizeThatFits(maxTitleSize)
+        titleSize.width += 20
+        titleSize.height += 10
+        toastLabel.frame = CGRect(x: view.frame.size.width / 2 - titleSize.width / 2, y: view.frame.size.height - 50, width: titleSize.width, height: titleSize.height)
+        
+        view.addSubview(toastLabel)
+        
+        UIView.animate(withDuration: 1, delay: 2, options: .curveEaseOut, animations: {
+            toastLabel.alpha = 0.0
+        }, completion: { _ in
+            toastLabel.removeFromSuperview()
+        })
+    }
+    
+    
 }

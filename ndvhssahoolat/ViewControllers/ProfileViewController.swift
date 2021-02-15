@@ -23,49 +23,26 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var phone: UITextField!
     
     let imgUri:String! = nil
+    var imgSelected:Bool = false
+    var liveUrl:String!
     
     
     @IBAction func updateBtn(_ sender: Any) {
+        let alert = UIAlertController(title: nil, message: "Saving profile...", preferredStyle: .alert)
+
+        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.startAnimating();
+
+        alert.view.addSubview(loadingIndicator)
+        present(alert, animated: true, completion: nil)
+        if(imgSelected){
+            uploadImage()
+        }else{
+            savedata()
+        }
         
-        uploadImage()
-        
-//        let myValue = Configuration.value(defaultValue: "default_value", forKey: "userid")
-//        let postRequest=PostRequest(api_username: "WF9.FJ8u'FP{c5Pw",api_password: "3B~fauh5s93j[FKb",id: myValue,name: name.text ?? "",
-//                                    phone: phone.text ?? "",housenumber: housenumber.text ?? "",block: block.text ?? "",gender: "Male")
-//
-//
-//
-//        let apiRequest=APIRequest(endpoint: "user/updateProfile")
-//        apiRequest.updateProfile(postRequest: postRequest, completion: { result in
-//            switch result{
-//            case .success(let message):
-//                print("done: \(message)")
-//                Configuration.value(value: String(message.user.id!), forKey: "userid")
-//                Configuration.value(value: ""+message.user.name, forKey: "name")
-//                Configuration.value(value: ""+message.user.username, forKey: "username")
-//                Configuration.value(value: ""+message.user.phone, forKey: "phone")
-//                Configuration.value(value: ""+message.user.housenumber, forKey: "house")
-//                Configuration.value(value: ""+message.user.block, forKey: "block")
-//                Configuration.value(value: ""+message.user.email, forKey: "email")
-//                Configuration.value(value: ""+message.user.avatar, forKey: "avatar")
-//                let myValue = Configuration.value(defaultValue: "default_value", forKey: "userid")
-//                print(myValue)
-//                DispatchQueue.main.async {
-//                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//                    let mainTabBarController = storyboard.instantiateViewController(identifier: "MainTabBarController")
-//                    mainTabBarController.modalPresentationStyle = .fullScreen
-//                    self.present(mainTabBarController, animated: true, completion: nil)
-//
-//                }
-//
-//
-//
-//            case .failure(let error):
-//                print ("error: \(error)")
-//
-//            }
-//        })
-//
+        //
     }
     
     
@@ -85,6 +62,47 @@ class ProfileViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
+    public  func savedata(){
+        
+        let myValue = Configuration.value(defaultValue: "default_value", forKey: "userid")
+        let postRequest=PostRequest(api_username: "WF9.FJ8u'FP{c5Pw",api_password: "3B~fauh5s93j[FKb",id: myValue,name: name.text ?? "",
+                                    phone: phone.text ?? "",housenumber: housenumber.text ?? "",block: block.text ?? "",gender: "Male",liveUrl: liveUrl)
+        
+        
+        
+        let apiRequest=APIRequest(endpoint: "user/updateProfile")
+        apiRequest.updateProfile(postRequest: postRequest, completion: { result in
+            switch result{
+            case .success(let message):
+                print("done: \(message)")
+                Configuration.value(value: String(message.user.id!), forKey: "userid")
+                Configuration.value(value: ""+message.user.name, forKey: "name")
+                Configuration.value(value: ""+message.user.username, forKey: "username")
+                Configuration.value(value: ""+message.user.phone, forKey: "phone")
+                Configuration.value(value: ""+message.user.housenumber, forKey: "house")
+                Configuration.value(value: ""+message.user.block, forKey: "block")
+                Configuration.value(value: ""+message.user.email, forKey: "email")
+                Configuration.value(value: ""+message.user.avatar, forKey: "avatar")
+                let myValue = Configuration.value(defaultValue: "default_value", forKey: "userid")
+//                print(myValue)
+               
+                DispatchQueue.main.async {
+                    self.dismiss(animated: false, completion: nil)
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    let mainTabBarController = storyboard.instantiateViewController(identifier: "MainTabBarController")
+                    mainTabBarController.modalPresentationStyle = .fullScreen
+                    self.present(mainTabBarController, animated: true, completion: nil)
+                    
+                }
+                
+                
+                
+            case .failure(let error):
+                print ("error: \(error)")
+                
+            }
+        })
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
@@ -93,7 +111,7 @@ class ProfileViewController: UIViewController {
         let tap = UITapGestureRecognizer(target: self, action: #selector(ProfileViewController.tappedMe))
         imageView.addGestureRecognizer(tap)
         imageView.isUserInteractionEnabled = true
-        
+        imgSelected=false
         
         
         
@@ -104,9 +122,9 @@ class ProfileViewController: UIViewController {
         
         let uiImage: UIImage = self.imageView.image!
         
-//                let imageData = uiImage.compress(to: 300)
+        //                let imageData = uiImage.compress(to: 300)
         let uiImages = uiImage.wxCompress()
-
+        
         let imageData: Data = uiImages.jpegData(compressionQuality: 0.1) ?? Data()
         let imageStr: String = imageData.base64EncodedString()
         
@@ -128,7 +146,7 @@ class ProfileViewController: UIViewController {
         urlRequest.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         
         // send the request
-        URLSession.shared.dataTask(with: urlRequest, completionHandler: { (data, response, error) in
+        URLSession.shared.dataTask(with: urlRequest, completionHandler: { [self] (data, response, error) in
             guard let data = data else {
                 print("invalid data")
                 return
@@ -137,6 +155,8 @@ class ProfileViewController: UIViewController {
             // show response in string
             let responseStr: String = String(data: data, encoding: .utf8) ?? ""
             print(responseStr)
+            self.liveUrl=responseStr
+            self.savedata()
         })
         .resume()
         
@@ -159,7 +179,8 @@ class ProfileViewController: UIViewController {
                 print(photo.modifiedImage) // Transformed image, can be nil
                 print(photo.exifMeta) // Print exif meta data of original image.
                 self.imageView.image=photo.image
-               
+                self.imgSelected=true
+                
             }
             picker.dismiss(animated: true, completion: nil)
             
@@ -188,7 +209,19 @@ class ProfileViewController: UIViewController {
         housenumber.text=Configuration.value(defaultValue: "default_value", forKey: "house")
         block.text=Configuration.value(defaultValue: "default_value", forKey: "block")
         email.text=Configuration.value(defaultValue: "default_value", forKey: "email")
-        
+        liveUrl=Configuration.value(defaultValue: "default_value", forKey: "avatar")
+        var imgUrl="http://sahoolat.ndvhs.com/storage/"+liveUrl
+        if let url = URL(string: imgUrl) {
+            let task = URLSession.shared.dataTask(with: url) { data, response, error in
+                guard let data = data, error == nil else { return }
+                
+                DispatchQueue.main.async { /// execute on main thread
+                    self.imageView.image = UIImage(data: data)
+                }
+            }
+            
+            task.resume()
+        }
         
     }
     /*
@@ -202,3 +235,4 @@ class ProfileViewController: UIViewController {
      */
     
 }
+

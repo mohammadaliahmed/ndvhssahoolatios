@@ -14,4 +14,5 @@ target 'ndvhssahoolat' do
 
 pod 'YPImagePicker'
 pod 'WXImageCompress', '~> 0.1.1'
+pod 'Toast-Swift', '~> 5.0.1'
 end

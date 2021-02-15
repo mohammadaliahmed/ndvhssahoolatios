@@ -110,7 +110,7 @@ struct APIRequest{
                     return
                 }
                 if let JSONString = String(data: jsonData, encoding: String.Encoding.utf8) {
-                   print(JSONString)
+//                   print(JSONString)
                 }
                 do{
                     let messageData=try JSONDecoder().decode(APIResponse.self,from: jsonData)

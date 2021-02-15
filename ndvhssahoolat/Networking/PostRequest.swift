@@ -23,6 +23,7 @@ class PostRequest:Codable{
     var priority:String!
     var title:String!
     var description:String!
+    var liveUrl:String!
     
     
     
@@ -45,18 +46,26 @@ class PostRequest:Codable{
         self.priority=priority
         self.description=description
         self.department_id=department_id
+    }
     
-        
+    init(api_username:String,api_password:String,id:String,title:String,description:String,priority:String,department_id:String,liveUrl:String) {
+        self.api_username=api_username
+        self.api_password=api_password
+        self.title=title
+        self.id=id
+        self.priority=priority
+        self.description=description
+        self.department_id=department_id
+        self.liveUrl=liveUrl
     }
     
     
-    
-    init(api_username:String,api_password:String,id:String,name:String,phone:String,housenumber:String,block:String,gender:String) {
+    init(api_username:String,api_password:String,id:String,name:String,phone:String,housenumber:String,block:String,gender:String,liveUrl:String) {
         self.api_username=api_username
         self.api_password=api_password
         self.phone=phone
         self.id=id
-    
+        self.liveUrl=liveUrl
         self.housenumber=housenumber
         self.block=block
         self.gender=gender
