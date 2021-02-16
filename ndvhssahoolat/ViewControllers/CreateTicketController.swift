@@ -13,13 +13,18 @@ import Toast_Swift
 
 class CreateTicketController: UIViewController{
     
+    @IBOutlet weak var departmentTF: UITextField!
+    @IBOutlet weak var priorityTF: UITextField!
+    @IBOutlet weak var titleTF: UITextField!
     @IBOutlet weak var descriptionTF: UITextView!
     
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var titleTF: UITextField!
-    @IBOutlet weak var priorityTF: UITextField!
-    @IBOutlet weak var departmentTF: UITextField!
     
+    @IBOutlet weak var imageView: UIImageView!
+    
+ 
+    
+    
+    @IBOutlet weak var scrollView: UIScrollView!
     
     
     
@@ -112,10 +117,25 @@ class CreateTicketController: UIViewController{
         getDataFromServer {
             self.reloadInputViews()
         }
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardAppear), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboadDisappear), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         
         // Do any additional setup after loading the view.
+    }
+    var isExpanded:Bool=false
+    
+    @objc func keyboardAppear(){
+        if(!isExpanded){
+            self.scrollView.contentSize=CGSize(width: self.view.frame.width, height: self.view.frame.height+150)
+            isExpanded=true
+        }
+    }
+    @objc func keyboadDisappear(){
+        if(isExpanded){
+            self.scrollView.contentSize=CGSize(width: self.view.frame.width, height: self.view.frame.height-150)
+            isExpanded=false
+        }
     }
     @objc func tappedMe()
     {
@@ -307,34 +327,3 @@ extension CreateTicketController: UIPickerViewDataSource,UIPickerViewDelegate{
 }
 
 
-extension UIViewController {
-    
-    func showToastt(message: String, font: UIFont) {
-        let toastLabel = UILabel()
-        toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)
-        toastLabel.textColor = .white
-        toastLabel.font = font
-        toastLabel.textAlignment = .center
-        toastLabel.text = message
-        toastLabel.alpha = 1.0
-        toastLabel.layer.cornerRadius = 10
-        toastLabel.clipsToBounds = true
-        
-        let maxWidthPercentage: CGFloat = 0.8
-        let maxTitleSize = CGSize(width: view.bounds.size.width * maxWidthPercentage, height: view.bounds.size.height * maxWidthPercentage)
-        var titleSize = toastLabel.sizeThatFits(maxTitleSize)
-        titleSize.width += 20
-        titleSize.height += 10
-        toastLabel.frame = CGRect(x: view.frame.size.width / 2 - titleSize.width / 2, y: view.frame.size.height - 50, width: titleSize.width, height: titleSize.height)
-        
-        view.addSubview(toastLabel)
-        
-        UIView.animate(withDuration: 1, delay: 2, options: .curveEaseOut, animations: {
-            toastLabel.alpha = 0.0
-        }, completion: { _ in
-            toastLabel.removeFromSuperview()
-        })
-    }
-    
-    
-}
