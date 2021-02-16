@@ -62,8 +62,9 @@ class RegisterController: UIViewController {
             case .success(let message):
                 print("done: \(message)")
                 if(message.user==nil){
+                    DispatchQueue.main.async {
                     self.view.makeToast(message.message, duration: 1.0)
-                    
+                    }
                 }else{
                     
                     let defaults = UserDefaults.standard

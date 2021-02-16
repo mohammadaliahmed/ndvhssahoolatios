@@ -13,6 +13,7 @@ class HomeViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
     @IBOutlet weak var topHeader: UIImageView!
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var noTickets: UIView!
     @IBOutlet weak var email: UILabel!
     @IBOutlet weak var phone: UILabel!
     @IBOutlet weak var address: UILabel!
@@ -33,7 +34,7 @@ class HomeViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
         
         topHeader.layer.cornerRadius=10
         
-        
+        noTickets.isHidden=true
         
         let defaults = UserDefaults.standard
         topName.text = defaults.string(forKey: "name")
@@ -47,14 +48,14 @@ class HomeViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
             if let url = URL(string: imgUrl) {
                 let task = URLSession.shared.dataTask(with: url) { data, response, error in
                     guard let data = data, error == nil else { return }
-
+                    
                     DispatchQueue.main.async { /// execute on main thread
                         self.imageView.image = UIImage(data: data)
                         self.imageView.layer.cornerRadius = self.imageView.frame.height / 2
                         self.imageView.clipsToBounds = true
                     }
                 }
-
+                
                 task.resume()
             }
         }
@@ -69,7 +70,7 @@ class HomeViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
         //            cell.textLabel?.text=tickets[indexPath.row].subject
         let cell=tableView.dequeueReusableCell(withIdentifier: "customCell") as! CustomCellController
         
-        cell.subj.text=tickets[indexPath.row].subject!
+        cell.subj.text=tickets[indexPath.row].subject! 
         cell.desc.text=tickets[indexPath.row].description!
         var ticket=tickets[indexPath.row]
         
@@ -118,6 +119,15 @@ class HomeViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
             switch result{
             case .success(let message):
                 self.tickets=message.tickets
+                if(self.tickets.count>0){
+                    DispatchQueue.main.async {
+                        self.noTickets.isHidden=true
+                    }
+                }else{
+                    DispatchQueue.main.async {
+                        self.noTickets.isHidden=false
+                    }
+                }
                 DispatchQueue.main.async {
                     
                     comlete()

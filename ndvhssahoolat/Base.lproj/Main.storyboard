@@ -526,6 +526,27 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2w5-jH-NRt">
+                                <rect key="frame" x="112.66666666666669" y="356" width="150" height="100"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="No Tickets" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cAE-6n-G1m">
+                                        <rect key="frame" x="58.000000000000057" y="40" width="81" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="warn" translatesAutoresizingMaskIntoConstraints="NO" id="Mhe-gV-vAi">
+                                        <rect key="frame" x="18" y="34" width="35" height="32"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="JuI-L9-1bs"/>
+                                    <constraint firstAttribute="height" constant="100" id="aMk-Ls-QSs"/>
+                                </constraints>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="03158000333" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XJO-PA-bJ7">
                                 <rect key="frame" x="212" y="211" width="69" height="12"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -550,7 +571,9 @@
                             <constraint firstItem="QdQ-W0-oyU" firstAttribute="leading" secondItem="kl8-8A-7Ac" secondAttribute="leading" id="Shl-jE-S5x"/>
                             <constraint firstItem="DwC-Rn-4qT" firstAttribute="leading" secondItem="QdQ-W0-oyU" secondAttribute="leading" id="SlU-7K-psO"/>
                             <constraint firstItem="8rN-Ec-e6W" firstAttribute="leading" secondItem="DwC-Rn-4qT" secondAttribute="leading" id="Tvv-eY-1rE"/>
+                            <constraint firstItem="2w5-jH-NRt" firstAttribute="centerY" secondItem="jv3-do-3qx" secondAttribute="centerY" id="bMI-nQ-SUF"/>
                             <constraint firstItem="i5M-3G-cbB" firstAttribute="leading" secondItem="Ld8-Yz-wEy" secondAttribute="leading" constant="20" id="c8f-o2-w4E"/>
+                            <constraint firstItem="2w5-jH-NRt" firstAttribute="centerX" secondItem="jv3-do-3qx" secondAttribute="centerX" id="ca9-mk-DHB"/>
                             <constraint firstItem="DwC-Rn-4qT" firstAttribute="top" secondItem="8rN-Ec-e6W" secondAttribute="bottom" constant="8" symbolic="YES" id="dCQ-s1-7Qu"/>
                             <constraint firstItem="Ld8-Yz-wEy" firstAttribute="trailing" secondItem="8rN-Ec-e6W" secondAttribute="trailing" constant="20" id="fCL-jL-Ycw"/>
                             <constraint firstItem="8rN-Ec-e6W" firstAttribute="top" secondItem="i5M-3G-cbB" secondAttribute="bottom" constant="10" id="fE5-TK-8hW"/>
@@ -569,6 +592,7 @@
                         <outlet property="address" destination="9bJ-ia-C73" id="fKx-ia-iHF"/>
                         <outlet property="email" destination="Hqr-0R-Hu0" id="bGH-0b-mDd"/>
                         <outlet property="imageView" destination="Y9j-M8-Jft" id="ZOU-eW-w0f"/>
+                        <outlet property="noTickets" destination="2w5-jH-NRt" id="SLe-9O-6Id"/>
                         <outlet property="phone" destination="XJO-PA-bJ7" id="Sh4-BU-dMH"/>
                         <outlet property="tableView" destination="kl8-8A-7Ac" id="4PS-ub-QFv"/>
                         <outlet property="topHeader" destination="DwC-Rn-4qT" id="dg9-tg-H4Q"/>
@@ -940,8 +964,12 @@
         <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
         <image name="profile" width="512" height="512"/>
         <image name="questionmark.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="warn" width="128" height="128"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="secondarySystemBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
