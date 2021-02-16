@@ -129,9 +129,10 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         
         let imageData: Data = uiImages.jpegData(compressionQuality: 0.1) ?? Data()
         let imageStr: String = imageData.base64EncodedString()
+        let type:String = "profile"
         
         // send request to server
-        guard let url: URL = URL(string: "http://test.ndvhs.com/profile.php") else {
+        guard let url: URL = URL(string: "http://test.ndvhs.com/index.php?type=profile") else {
             print("invalid URL")
             return
         }
@@ -176,11 +177,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         let picker = YPImagePicker()
         picker.didFinishPicking { [unowned picker] items, _ in
             if let photo = items.singlePhoto {
-                print(photo.fromCamera) // Image source (camera or library)
-                print(photo.image) // Final image selected by the user
-                print(photo.originalImage) // original image selected by the user, unfiltered
-                print(photo.modifiedImage) // Transformed image, can be nil
-                print(photo.exifMeta) // Print exif meta data of original image.
+              
                 self.imageView.image=photo.image
                 self.imgSelected=true
                 
@@ -218,7 +215,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         liveUrl=defaults.string( forKey: "avatar")
         if(liveUrl != nil){
             
-            var imgUrl="http://sahoolat.ndvhs.com/storage/"+liveUrl!
+            var imgUrl="http://sahoolat.ndvhs.com/uploads/"+liveUrl!
             if let url = URL(string: imgUrl) {
                 let task = URLSession.shared.dataTask(with: url) { data, response, error in
                     guard let data = data, error == nil else { return }

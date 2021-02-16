@@ -43,7 +43,7 @@ class HomeViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
         var myValue = defaults.string(forKey: "avatar")
         
         if(myValue != nil){
-            var imgUrl="http://sahoolat.ndvhs.com/storage/"+myValue!
+            var imgUrl="http://sahoolat.ndvhs.com/uploads/"+myValue!
             if let url = URL(string: imgUrl) {
                 let task = URLSession.shared.dataTask(with: url) { data, response, error in
                     guard let data = data, error == nil else { return }
