@@ -25,16 +25,16 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     var imgSelected:Bool = false
     var liveUrl:String!
     var textFields: [UITextField] {
-            return [name, phone, housenumber, block,email]
-        }
+        return [name, phone, housenumber, block,email]
+    }
     
     @IBAction func updateBtn(_ sender: Any) {
         let alert = UIAlertController(title: nil, message: "Saving profile...", preferredStyle: .alert)
-
+        
         let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
         loadingIndicator.hidesWhenStopped = true
         loadingIndicator.startAnimating();
-
+        
         alert.view.addSubview(loadingIndicator)
         present(alert, animated: true, completion: nil)
         if(imgSelected){
@@ -65,7 +65,8 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     
     public  func savedata(){
         
-        let myValue = Configuration.value(defaultValue: "default_value", forKey: "userid")
+        let defaults = UserDefaults.standard
+        let myValue = defaults.integer(forKey: "userid")
         let usenr = Configuration.value(defaultValue: "default_value", forKey: "username")
         let postRequest=PostRequest(api_username: "WF9.FJ8u'FP{c5Pw",api_password: "3B~fauh5s93j[FKb",id: myValue,username: usenr,name: name.text ?? "",
                                     phone: phone.text ?? "",housenumber: housenumber.text ?? "",block: block.text ?? "",gender: "Male",liveUrl: liveUrl)
@@ -77,17 +78,15 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
             switch result{
             case .success(let message):
                 print("done: \(message)")
-                Configuration.value(value: String(message.user.id!), forKey: "userid")
-                Configuration.value(value: ""+message.user.name, forKey: "name")
-                Configuration.value(value: ""+message.user.username, forKey: "username")
-                Configuration.value(value: ""+message.user.phone, forKey: "phone")
-                Configuration.value(value: ""+message.user.housenumber, forKey: "house")
-                Configuration.value(value: ""+message.user.block, forKey: "block")
-                Configuration.value(value: ""+message.user.email, forKey: "email")
-                Configuration.value(value: ""+message.user.avatar, forKey: "avatar")
-                let myValue = Configuration.value(defaultValue: "default_value", forKey: "userid")
-//                print(myValue)
-               
+                let defaults = UserDefaults.standard
+                defaults.set(message.user.name, forKey: "name")
+                defaults.set(message.user.phone, forKey: "phone")
+                
+                defaults.set(message.user.housenumber, forKey: "house")
+                defaults.set(message.user.block, forKey: "block")
+                defaults.set(message.user.email, forKey: "email")
+                defaults.set(message.user.avatar, forKey: "avatar")
+                
                 DispatchQueue.main.async {
                     self.dismiss(animated: false, completion: nil)
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -132,13 +131,14 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         let imageStr: String = imageData.base64EncodedString()
         
         // send request to server
-        guard let url: URL = URL(string: "http://test.ndvhs.com/index.php") else {
+        guard let url: URL = URL(string: "http://test.ndvhs.com/profile.php") else {
             print("invalid URL")
             return
         }
         
         // create parameters
         let paramStr: String = "image=\(imageStr)"
+        
         let paramData: Data = paramStr.data(using: .utf8) ?? Data()
         
         var urlRequest: URLRequest = URLRequest(url: url)
@@ -207,28 +207,32 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     
     
     func setupData(){
-        name.text=Configuration.value(defaultValue: "default_value", forKey: "name")
-        phone.text=Configuration.value(defaultValue: "default_value", forKey: "phone")
-        housenumber.text=Configuration.value(defaultValue: "default_value", forKey: "house")
-        block.text=Configuration.value(defaultValue: "default_value", forKey: "block")
-        email.text=Configuration.value(defaultValue: "default_value", forKey: "email")
-       
-        liveUrl=Configuration.value(defaultValue: "default_value", forKey: "avatar")
+        let defaults = UserDefaults.standard
+        let myValue = defaults.integer(forKey: "userid")
+        name.text=defaults.string( forKey: "name")
+        phone.text=defaults.string( forKey: "phone")
+        housenumber.text=defaults.string( forKey: "house")
+        block.text=defaults.string( forKey: "block")
+        email.text=defaults.string( forKey: "email")
         
-        var imgUrl="http://sahoolat.ndvhs.com/storage/"+liveUrl
-        if let url = URL(string: imgUrl) {
-            let task = URLSession.shared.dataTask(with: url) { data, response, error in
-                guard let data = data, error == nil else { return }
-                
-                DispatchQueue.main.async { /// execute on main thread
-                    self.imageView.image = UIImage(data: data)
-                }
-            }
+        liveUrl=defaults.string( forKey: "avatar")
+        if(liveUrl != nil){
             
-            task.resume()
+            var imgUrl="http://sahoolat.ndvhs.com/storage/"+liveUrl!
+            if let url = URL(string: imgUrl) {
+                let task = URLSession.shared.dataTask(with: url) { data, response, error in
+                    guard let data = data, error == nil else { return }
+                    
+                    DispatchQueue.main.async { /// execute on main thread
+                        self.imageView.image = UIImage(data: data)
+                    }
+                }
+                
+                task.resume()
+            }
         }
         
-       
+        
         textFields.forEach { $0.delegate = self }
         
         
@@ -236,14 +240,14 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-            if let selectedTextFieldIndex = textFields.firstIndex(of: textField), selectedTextFieldIndex < textFields.count - 1 {
-                textFields[selectedTextFieldIndex + 1].becomeFirstResponder()
-            } else {
-                textField.resignFirstResponder() // last textfield, dismiss keyboard directly
-            }
-            return true
+        if let selectedTextFieldIndex = textFields.firstIndex(of: textField), selectedTextFieldIndex < textFields.count - 1 {
+            textFields[selectedTextFieldIndex + 1].becomeFirstResponder()
+        } else {
+            textField.resignFirstResponder() // last textfield, dismiss keyboard directly
         }
-
+        return true
+    }
+    
     /*
      // MARK: - Navigation
      

@@ -12,12 +12,13 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         overrideUserInterfaceStyle = .light
-        
-        Configuration.value(value: "my_value", forKey: "key_1")
-        let myValue = Configuration.value(defaultValue: "default_value", forKey: "userid")
+        let defaults = UserDefaults.standard
+        let myValue = defaults.integer(forKey: "userid")
+//        Configuration.value(value: "my_value", forKey: "key_1")
+//        let myValue = Configuration.value(defaultValue: "default_value", forKey: "userid")
         self.hideKeyboardWhenTappedAround()
         print(myValue)
-        if(myValue=="default_value"){
+        if(myValue==0){
             
             performSegue(withIdentifier: "loginView", sender: self)
             

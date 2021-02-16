@@ -53,7 +53,7 @@ class NoticeBoardController: UIViewController ,UITableViewDelegate,UITableViewDa
     }
     func getDataFromServer(comlete: @escaping()->()){
         
-        let postRequest=PostRequest(api_username: "WF9.FJ8u'FP{c5Pw",api_password: "3B~fauh5s93j[FKb",phone: "", password: "",id: "2")
+        let postRequest=PostRequest(api_username: "WF9.FJ8u'FP{c5Pw",api_password: "3B~fauh5s93j[FKb",phone: "", password: "",id: 1)
         
         
         

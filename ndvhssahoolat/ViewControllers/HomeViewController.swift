@@ -12,7 +12,12 @@ class HomeViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var topHeader: UIImageView!
     @IBOutlet weak var tableView: UITableView!
-   
+    
+    @IBOutlet weak var email: UILabel!
+    @IBOutlet weak var phone: UILabel!
+    @IBOutlet weak var address: UILabel!
+    
+    @IBOutlet weak var topName: UILabel!
     var tickets=[Ticket]()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,22 +35,29 @@ class HomeViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
         
         
         
-        let myValue = Configuration.value(defaultValue: "default_value", forKey: "avatar")
-        var imgUrl="http://sahoolat.ndvhs.com/storage/"+myValue
-        if let url = URL(string: imgUrl) {
-            let task = URLSession.shared.dataTask(with: url) { data, response, error in
-                guard let data = data, error == nil else { return }
-                
-                DispatchQueue.main.async { /// execute on main thread
-                    self.imageView.image = UIImage(data: data)
-                    self.imageView.layer.cornerRadius = self.imageView.frame.height / 2
-                    self.imageView.clipsToBounds = true
-                }
-            }
-            
-            task.resume()
-        }
+        let defaults = UserDefaults.standard
+        topName.text = defaults.string(forKey: "name")
+        email.text = defaults.string(forKey: "email")
+        phone.text = defaults.string(forKey: "phone")
+        address.text = "House #" + (defaults.string(forKey: "housenumber") ?? "") + ", " + (defaults.string(forKey: "block") ?? "")
+        var myValue = defaults.string(forKey: "avatar")
         
+        if(myValue != nil){
+            var imgUrl="http://sahoolat.ndvhs.com/storage/"+myValue!
+            if let url = URL(string: imgUrl) {
+                let task = URLSession.shared.dataTask(with: url) { data, response, error in
+                    guard let data = data, error == nil else { return }
+
+                    DispatchQueue.main.async { /// execute on main thread
+                        self.imageView.image = UIImage(data: data)
+                        self.imageView.layer.cornerRadius = self.imageView.frame.height / 2
+                        self.imageView.clipsToBounds = true
+                    }
+                }
+
+                task.resume()
+            }
+        }
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tickets.count
@@ -65,8 +77,8 @@ class HomeViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
         cell.cellView.layer.shadowOffset = CGSize(width: 0, height: 2)
         cell.cellView.layer.shadowRadius = 2
         cell.cellView.layer.shadowOpacity = 0.3
-      
-       
+        
+        
         cell.cellView.layer.shadowColor = UIColor.black.cgColor
         cell.cellView.layer.shadowPath = UIBezierPath(roundedRect: cell.cellView.bounds,
                                                       byRoundingCorners: .allCorners, cornerRadii: CGSize(width: 2, height:
@@ -94,19 +106,20 @@ class HomeViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
         
     }
     func getDataFromServer(comlete: @escaping()->()){
-        let myValue = Configuration.value(defaultValue: "default_value", forKey: "userid")
+        let defaults = UserDefaults.standard
+        let myValue = defaults.integer(forKey: "userid")
         let postRequest=PostRequest(api_username: "WF9.FJ8u'FP{c5Pw",api_password: "3B~fauh5s93j[FKb",phone: "", password: "",id: myValue)
         
         
         
         let apiRequest=APIRequest(endpoint: "ticket/allTickets")
         apiRequest.hometickets(postRequest: postRequest, completion: { result in
-          
+            
             switch result{
             case .success(let message):
                 self.tickets=message.tickets
                 DispatchQueue.main.async {
-
+                    
                     comlete()
                     
                 }
@@ -119,7 +132,7 @@ class HomeViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
             }
         })
         
-
+        
     }
     
     

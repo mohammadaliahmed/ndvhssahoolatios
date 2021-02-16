@@ -163,21 +163,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Register" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zJe-rz-tHa">
-                                <rect key="frame" x="16" y="101" width="169" height="36"/>
+                                <rect key="frame" x="16" y="63" width="169" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ndvhs_sahoolat" translatesAutoresizingMaskIntoConstraints="NO" id="8l6-6S-xLB">
-                                <rect key="frame" x="161" y="96" width="198" height="46"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Xy-zb-2Cr">
                                 <rect key="frame" x="0.0" y="134" width="375" height="644"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W9h-WW-Gxm">
-                                        <rect key="frame" x="0.0" y="8" width="375" height="636"/>
+                                        <rect key="frame" x="0.0" y="-20" width="375" height="664"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IVz-Yr-em0">
@@ -192,14 +188,14 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p9Q-gS-moe">
-                                                <rect key="frame" x="17" y="355" width="74" height="21"/>
+                                                <rect key="frame" x="17" y="362" width="74" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Dq5-f7-DLA">
-                                                <rect key="frame" x="16" y="384" width="343" height="34"/>
+                                                <rect key="frame" x="16" y="390" width="343" height="34"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
@@ -215,7 +211,7 @@
                                                 <rect key="frame" x="16" y="63" width="343" height="34"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hze-3M-XSg">
                                                 <rect key="frame" x="16" y="284" width="41" height="21"/>
@@ -235,19 +231,19 @@
                                                 <rect key="frame" x="16" y="147" width="343" height="34"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="next" textContentType="tel"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ZF9-8V-ayJ">
                                                 <rect key="frame" x="12" y="313" width="343" height="34"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="next" textContentType="email"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="House #" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="yEI-WT-6lD">
                                                 <rect key="frame" x="14" y="227" width="158" height="34"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="next" textContentType="tel"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="House #" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yse-7Q-92t">
                                                 <rect key="frame" x="14" y="198" width="64" height="21"/>
@@ -260,7 +256,7 @@
                                                 <rect key="frame" x="203" y="227" width="158" height="34"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Block " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RMX-WE-w9r">
                                                 <rect key="frame" x="203" y="198" width="47" height="21"/>
@@ -286,6 +282,10 @@
                                 <viewLayoutGuide key="contentLayoutGuide" id="7aX-yL-pHL"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="Jip-ok-V8t"/>
                             </scrollView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ndvhs_sahoolat" translatesAutoresizingMaskIntoConstraints="NO" id="8l6-6S-xLB">
+                                <rect key="frame" x="183" y="63" width="198" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="zzs-7w-Oxe"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -301,6 +301,7 @@
                         <outlet property="block" destination="BRC-jC-GVX" id="8Rw-VF-P71"/>
                         <outlet property="email" destination="ZF9-8V-ayJ" id="L8G-nZ-Vy8"/>
                         <outlet property="housenumber" destination="yEI-WT-6lD" id="tCr-bK-See"/>
+                        <outlet property="nameTf" destination="HJs-7w-FWF" id="G4n-s6-ud1"/>
                         <outlet property="password" destination="Dq5-f7-DLA" id="bUC-M0-T8E"/>
                         <outlet property="phone" destination="eZ4-re-bqq" id="Wme-As-c8I"/>
                         <outlet property="scrollView" destination="2Xy-zb-2Cr" id="z3x-ZU-VLk"/>
@@ -404,7 +405,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MmU-y1-oMb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3536.8000000000002" y="913.30049261083752"/>
+            <point key="canvasLocation" x="3260" y="913"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="Tlv-5D-fKF">
@@ -447,7 +448,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ki2-1f-X0V">
-                                                    <rect key="frame" x="10" y="10" width="319" height="60"/>
+                                                    <rect key="frame" x="0.0" y="10" width="329" height="60"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M3Z-Rh-REh">
                                                             <rect key="frame" x="8" y="8" width="311" height="27"/>
@@ -483,7 +484,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="ki2-1f-X0V" secondAttribute="bottom" constant="10" id="NrX-se-1UC"/>
                                                 <constraint firstAttribute="trailing" secondItem="ki2-1f-X0V" secondAttribute="trailing" constant="10" id="ZeB-cx-gQP"/>
-                                                <constraint firstItem="ki2-1f-X0V" firstAttribute="leading" secondItem="WTr-CG-85b" secondAttribute="leading" constant="10" id="agw-by-F2V"/>
+                                                <constraint firstItem="ki2-1f-X0V" firstAttribute="leading" secondItem="WTr-CG-85b" secondAttribute="leading" id="agw-by-F2V"/>
                                                 <constraint firstItem="ki2-1f-X0V" firstAttribute="top" secondItem="WTr-CG-85b" secondAttribute="top" constant="10" id="pea-Ke-QlP"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -565,14 +566,18 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="house.fill" catalog="system" id="gLh-5N-ScW"/>
                     <connections>
+                        <outlet property="address" destination="9bJ-ia-C73" id="fKx-ia-iHF"/>
+                        <outlet property="email" destination="Hqr-0R-Hu0" id="bGH-0b-mDd"/>
                         <outlet property="imageView" destination="Y9j-M8-Jft" id="ZOU-eW-w0f"/>
+                        <outlet property="phone" destination="XJO-PA-bJ7" id="Sh4-BU-dMH"/>
                         <outlet property="tableView" destination="kl8-8A-7Ac" id="4PS-ub-QFv"/>
                         <outlet property="topHeader" destination="DwC-Rn-4qT" id="dg9-tg-H4Q"/>
+                        <outlet property="topName" destination="8rN-Ec-e6W" id="GhV-gA-E6o"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kE7-hq-Xol" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2733.5999999999999" y="905.9113300492611"/>
+            <point key="canvasLocation" x="2440.8000000000002" y="912.5615763546798"/>
         </scene>
         <!--Tabs View Controller-->
         <scene sceneID="Jn1-bj-fVd">
@@ -713,7 +718,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Di-3h-Yml" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4325.6000000000004" y="912.5615763546798"/>
+            <point key="canvasLocation" x="4022" y="913"/>
         </scene>
         <!--Faqs View Controller-->
         <scene sceneID="GuT-YO-7gK">
@@ -802,7 +807,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mx4-o7-ElC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5109.6000000000004" y="912.5615763546798"/>
+            <point key="canvasLocation" x="4807" y="913"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="r0C-0C-tWO">
@@ -838,7 +843,7 @@
                                 <rect key="frame" x="16" y="211" width="343" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Phone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Euc-ds-3rY">
                                 <rect key="frame" x="16" y="264" width="49" height="21"/>
@@ -919,7 +924,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M2d-rJ-Bqx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5880.8000000000002" y="912.5615763546798"/>
+            <point key="canvasLocation" x="5548" y="913"/>
         </scene>
     </scenes>
     <resources>

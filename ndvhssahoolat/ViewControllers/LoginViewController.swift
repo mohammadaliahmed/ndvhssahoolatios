@@ -25,7 +25,7 @@ class LoginViewController: UIViewController {
     }
     @IBAction func loginButton(_ sender: Any) {
         
-        let postRequest=PostRequest(api_username: "WF9.FJ8u'FP{c5Pw",api_password: "3B~fauh5s93j[FKb",phone: phonenumber.text ?? "",password: password.text ?? "",id: "1")
+        let postRequest=PostRequest(api_username: "WF9.FJ8u'FP{c5Pw",api_password: "3B~fauh5s93j[FKb",phone: phonenumber.text ?? "",password: password.text ?? "",id: 1)
         
         
         
@@ -35,19 +35,22 @@ class LoginViewController: UIViewController {
             case .success(let message):
                 print("done: \(message)")
                 if(message.user==nil){
-                    DispatchQueue.main.async {self.showToast(message: message.message, font: .systemFont(ofSize: 12.0))
+                    DispatchQueue.main.async {
+                    self.view.makeToast(message.message, duration: 1.0)
                     }
+                
                 }else{
-                    Configuration.value(value: String(message.user.id!), forKey: "userid")
-                    Configuration.value(value: ""+message.user.name, forKey: "name")
-                    Configuration.value(value: ""+message.user.username, forKey: "username")
-                    Configuration.value(value: ""+message.user.phone, forKey: "phone")
-                    Configuration.value(value: ""+message.user.housenumber, forKey: "house")
-                    Configuration.value(value: ""+message.user.block, forKey: "block")
-                    Configuration.value(value: ""+message.user.email, forKey: "email")
-                    Configuration.value(value: ""+message.user.avatar, forKey: "avatar")
-                    let myValue = Configuration.value(defaultValue: "default_value", forKey: "userid")
-                    print(myValue)
+                    let defaults = UserDefaults.standard
+                    defaults.set(message.user.id, forKey: "userid")
+                    defaults.set(message.user.name, forKey: "name")
+                    defaults.set(message.user.phone, forKey: "phone")
+
+                    defaults.set(message.user.housenumber, forKey: "housenumber")
+                    defaults.set(message.user.block, forKey: "block")
+                    defaults.set(message.user.email, forKey: "email")
+                    defaults.set(message.user.avatar, forKey: "avatar")
+                   
+                   
                     DispatchQueue.main.async {
                         let storyboard = UIStoryboard(name: "Main", bundle: nil)
                         let mainTabBarController = storyboard.instantiateViewController(identifier: "MainTabBarController")

@@ -156,7 +156,8 @@ class CreateTicketController: UIViewController{
     
     func createTicket(comlete: @escaping()->()){
         
-        let myValue = Configuration.value(defaultValue: "default_value", forKey: "userid")
+        let defaults = UserDefaults.standard
+        let myValue = defaults.integer(forKey: "userid")
         var postRequest:PostRequest!
         if(imgSelected){
             postRequest=PostRequest(api_username: "WF9.FJ8u'FP{c5Pw",api_password: "3B~fauh5s93j[FKb",id: myValue ,title: titleTF.text  ?? "",
@@ -186,7 +187,7 @@ class CreateTicketController: UIViewController{
         
         
         
-        let postRequest=PostRequest(api_username: "WF9.FJ8u'FP{c5Pw",api_password: "3B~fauh5s93j[FKb",phone: "", password: "",id: "2")
+        let postRequest=PostRequest(api_username: "WF9.FJ8u'FP{c5Pw",api_password: "3B~fauh5s93j[FKb",phone: "", password: "",id: 1)
         
         let apiRequest=APIRequest(endpoint: "ticket/getDepartments")
         apiRequest.hometickets(postRequest: postRequest, completion: { result in

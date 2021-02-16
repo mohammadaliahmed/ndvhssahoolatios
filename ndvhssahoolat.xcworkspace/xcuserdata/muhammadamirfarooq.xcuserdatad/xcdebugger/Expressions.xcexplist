@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "ProfileViewController.setupData():ProfileViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "static Configuration.value&lt;A&gt;(defaultValue:forKey:):Configuration.swift">
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
