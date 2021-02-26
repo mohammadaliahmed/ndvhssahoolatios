@@ -74,6 +74,7 @@ class LoginViewController: UIViewController {
         overrideUserInterfaceStyle = .light
         self.navigationController?.isNavigationBarHidden = true
         self.hideKeyboardWhenTappedAround()
+        phonenumber.keyboardType = UIKeyboardType.phonePad
         
     }
     
