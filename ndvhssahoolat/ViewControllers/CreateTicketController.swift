@@ -117,26 +117,26 @@ class CreateTicketController: UIViewController{
         getDataFromServer {
             self.reloadInputViews()
         }
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardAppear), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboadDisappear), name: UIResponder.keyboardWillHideNotification, object: nil)
-        
+//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardAppear), name: UIResponder.keyboardWillShowNotification, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(keyboadDisappear), name: UIResponder.keyboardWillHideNotification, object: nil)
+//
         
         // Do any additional setup after loading the view.
     }
     var isExpanded:Bool=false
     
-    @objc func keyboardAppear(){
-        if(!isExpanded){
-            self.scrollView.contentSize=CGSize(width: self.view.frame.width, height: self.view.frame.height+150)
-            isExpanded=true
-        }
-    }
-    @objc func keyboadDisappear(){
-        if(isExpanded){
-            self.scrollView.contentSize=CGSize(width: self.view.frame.width, height: self.view.frame.height-150)
-            isExpanded=false
-        }
-    }
+//    @objc func keyboardAppear(){
+//        if(!isExpanded){
+//            self.scrollView.contentSize=CGSize(width: self.view.frame.width, height: self.view.frame.height+150)
+//            isExpanded=true
+//        }
+//    }
+//    @objc func keyboadDisappear(){
+//        if(isExpanded){
+//            self.scrollView.contentSize=CGSize(width: self.view.frame.width, height: self.view.frame.height-150)
+//            isExpanded=false
+//        }
+//    }
     @objc func tappedMe()
     {
         print("Tapped on Image")
